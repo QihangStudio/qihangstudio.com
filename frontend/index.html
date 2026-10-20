@@ -1,62 +1,43 @@
 <!doctype html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Qihang Studio</title>
-
   <meta name="description" data-i18n-content="meta.description" content="Qihang Studio — data, image, and the stories between them." />
-
   <script>
     (() => {
       const STORAGE_KEY = "qihangstudio-theme";
       let preference = "system";
-
       try {
         preference = localStorage.getItem(STORAGE_KEY) || "system";
       } catch (_) {}
-
       const systemDark =
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches;
-
       const resolved =
         preference === "system"
           ? (systemDark ? "dark" : "light")
           : preference;
-
       document.documentElement.dataset.theme = resolved;
       document.documentElement.dataset.themePreference = preference;
     })();
   </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
-
   <style>
-
     :root {
       color-scheme: light;
-
       --bg: #f7f6f2;
       --surface: rgba(247, 246, 242, 0.84);
       --text: #202124;
       --muted: #777872;
       --line: #d9d7d0;
-
       --nav-text: #3f4042;
       --nav-hover: #111214;
       --copy: #5e5f61;
       --practice-copy: #606164;
-
       --header-border: rgba(32, 33, 36, 0.08);
       --control-bg: rgba(255, 255, 255, 0.28);
       --menu-bg: rgba(250, 249, 246, 0.96);
@@ -64,45 +45,36 @@
       --menu-shadow: 0 18px 45px rgba(33, 34, 37, 0.10);
       --control-shadow: 0 6px 22px rgba(78, 80, 96, 0.10);
       --soft-hover: rgba(32, 33, 36, 0.045);
-
       --practice-hover-a: rgba(231, 198, 121, 0.04);
       --practice-hover-b: rgba(228, 160, 170, 0.055);
       --practice-hover-c: rgba(181, 139, 217, 0.055);
       --practice-hover-d: rgba(135, 149, 231, 0.05);
-
       --champagne: #e7c679;
       --rose: #e4a0aa;
       --lavender: #b58bd9;
       --peri: #8795e7;
-
       --quote-a: #a87988;
       --quote-b: #8d78b4;
       --quote-c: #6877be;
-
       /* Scroll indicator — intentionally more saturated than the main palette. */
       --scroll-track: rgba(119, 120, 114, 0.58);
       --scroll-champagne: #efbd3f;
       --scroll-rose: #eb7895;
       --scroll-lavender: #ad69df;
       --scroll-peri: #657cf2;
-
       --max: 1480px;
     }
-
     html[data-theme="dark"] {
       color-scheme: dark;
-
       --bg: #090909;
       --surface: rgba(9, 9, 9, 0.90);
       --text: #efede8;
       --muted: #9c9a95;
       --line: #282826;
-
       --nav-text: #c4c2bc;
       --nav-hover: #f7f4ef;
       --copy: #b8b6b0;
       --practice-copy: #b3b1ab;
-
       --header-border: rgba(255, 255, 255, 0.075);
       --control-bg: rgba(255, 255, 255, 0.025);
       --menu-bg: rgba(14, 14, 13, 0.97);
@@ -110,21 +82,17 @@
       --menu-shadow: 0 18px 45px rgba(0, 0, 0, 0.30);
       --control-shadow: 0 6px 22px rgba(0, 0, 0, 0.24);
       --soft-hover: rgba(255, 255, 255, 0.05);
-
       --practice-hover-a: rgba(217, 184, 111, 0.035);
       --practice-hover-b: rgba(207, 141, 156, 0.045);
       --practice-hover-c: rgba(162, 122, 202, 0.045);
       --practice-hover-d: rgba(125, 141, 221, 0.045);
-
       --champagne: #d9b86f;
       --rose: #cf8d9c;
       --lavender: #a27aca;
       --peri: #7d8ddd;
-
       --quote-a: #c08798;
       --quote-b: #a886d1;
       --quote-c: #8494e6;
-
       /* Brighter spectrum so the indicator stays visible on near-black. */
       --scroll-track: rgba(156, 154, 149, 0.50);
       --scroll-champagne: #ffd767;
@@ -132,26 +100,16 @@
       --scroll-lavender: #c58cff;
       --scroll-peri: #8fa2ff;
     }
-
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
-
       margin: 0;
-
       background: var(--bg);
-
       color: var(--text);
-
       font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-
       -webkit-font-smoothing: antialiased;
       transition: background-color .28s ease, color .28s ease;
-
     }
-
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
@@ -159,157 +117,84 @@
         animation-duration: 0.01ms !important;
       }
     }
-
     a { color: inherit; text-decoration: none; }
-
     button { font: inherit; }
-
   /* Thin editorial type for interface and display elements. */
-
   .brand,
-
   nav,
-
   .language-label,
-
   .language-option,
-
   .eyebrow,
-
   .hero-footer,
-
   .practice-number,
-
   .manifesto-label,
-
   footer {
-
     font-weight: 300;
-
   }
-
     .site-header {
-
       position: fixed;
-
       inset: 0 0 auto 0;
-
       z-index: 20;
-
       height: 74px;
-
       border-bottom: 1px solid var(--header-border);
-
       background: var(--surface);
-
       backdrop-filter: blur(18px);
-
       -webkit-backdrop-filter: blur(18px);
-
     }
-
     .header-inner {
-
       height: 100%;
-
       max-width: var(--max);
-
       margin: 0 auto;
-
       padding: 0 34px;
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 30px;
-
     }
-
     .brand {
-
       font-size: 13px;
-
       font-weight: 300;
-
       letter-spacing: .16em;
-
       text-transform: uppercase;
-
       white-space: nowrap;
-
     }
-
     .nav-wrap {
-
       display: flex;
-
       align-items: center;
-
       gap: 28px;
-
     }
-
     nav {
-
       display: flex;
-
       align-items: center;
-
       gap: 30px;
-
       font-size: 13px;
-
     }
-
     nav a {
-
       position: relative;
-
       color: var(--nav-text);
-
       transition: color .2s ease;
-
     }
-
     nav a::after {
-
       content: "";
-
       position: absolute;
-
       left: 0;
-
       right: 100%;
-
       bottom: -7px;
-
       height: 1px;
-
       background: linear-gradient(90deg, var(--rose), var(--lavender), var(--peri));
-
       transition: right .25s ease;
-
     }
-
     nav a:hover { color: var(--nav-hover); }
-
     nav a:hover::after { right: 0; }
-
     .nav-wrap {
       gap: 10px;
     }
-
     .nav-wrap nav {
       margin-right: 18px;
     }
-
     .appearance {
       position: relative;
     }
-
     .appearance-button {
       width: 36px;
       height: 36px;
@@ -328,31 +213,25 @@
         background-color .28s ease,
         color .28s ease;
     }
-
     .appearance-button:hover,
     .appearance-button[aria-expanded="true"] {
       transform: translateY(-1px);
       border-color: var(--peri);
       box-shadow: var(--control-shadow);
     }
-
     .appearance-button svg {
       width: 16px;
       height: 16px;
     }
-
     .theme-icon-moon {
       display: none;
     }
-
     html[data-theme="dark"] .theme-icon-sun {
       display: none;
     }
-
     html[data-theme="dark"] .theme-icon-moon {
       display: block;
     }
-
     .appearance-menu {
       position: absolute;
       right: 0;
@@ -370,13 +249,11 @@
       transform: translateY(-8px);
       transition: .2s ease;
     }
-
     .appearance-menu.open {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
-
     .appearance-label {
       padding: 8px 10px 7px;
       font-size: 9px;
@@ -385,7 +262,6 @@
       color: var(--muted);
       text-transform: uppercase;
     }
-
     .theme-option {
       width: 100%;
       border: 0;
@@ -399,265 +275,153 @@
       color: var(--nav-text);
       font-weight: 300;
     }
-
     .theme-option:hover {
       background: var(--soft-hover);
     }
-
     .theme-option .check {
       color: var(--peri);
     }
-
     .language {
-
       position: relative;
-
     }
-
     .language-button {
-
       width: 36px;
-
       height: 36px;
-
       padding: 0;
-
       border-radius: 50%;
-
       border: 1px solid var(--line);
-
       background: var(--control-bg);
-
       display: grid;
-
       place-items: center;
-
       cursor: pointer;
-
       color: var(--nav-text);
-
       transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, background-color .28s ease, color .28s ease;
-
     }
-
     .language-button:hover,
-
     .language-button[aria-expanded="true"] {
-
       transform: translateY(-1px);
-
       border-color: var(--peri);
-
       box-shadow: var(--control-shadow);
-
     }
-
     .language-button svg { width: 17px; height: 17px; }
-
     .language-menu {
-
       position: absolute;
-
       right: 0;
-
       top: 48px;
-
       width: 185px;
-
       padding: 10px;
-
       border: 1px solid var(--menu-border);
-
       border-radius: 14px;
-
       background: var(--menu-bg);
-
       backdrop-filter: blur(22px);
-
       -webkit-backdrop-filter: blur(22px);
-
       box-shadow: var(--menu-shadow);
-
       opacity: 0;
-
       visibility: hidden;
-
       transform: translateY(-8px);
-
       transition: .2s ease;
-
     }
-
     .language-menu.open {
-
       opacity: 1;
-
       visibility: visible;
-
       transform: translateY(0);
-
     }
-
     .language-label {
-
       padding: 8px 10px 7px;
-
       font-size: 9px;
-
       letter-spacing: .18em;
-
       color: var(--muted);
-
       text-transform: uppercase;
-
     }
-
     .language-option {
-
       width: 100%;
-
       border: 0;
-
       background: transparent;
-
       text-align: left;
-
       padding: 10px;
-
       border-radius: 9px;
-
       cursor: pointer;
-
       display: flex;
-
       justify-content: space-between;
-
       color: var(--nav-text);
-
     }
-
     .language-option:hover { background: var(--soft-hover); }
-
     .language-option .check { color: var(--peri); }
-
-
     /* Scroll indicator: muted rail + one moving color segment. */
     .scroll-rail {
       --scroll-progress: 0;
       --scroll-color: var(--scroll-champagne);
-
       position: fixed;
       z-index: 18;
-      left: 46px;
+      /* Follow the centered content gutter, outside its 34px text inset. */
+      left: clamp(
+        18px,
+        calc((100vw - var(--max)) / 4 + 14px),
+        44px
+      );
       top: 50%;
-
       width: 1px;
       height: 230px;
       transform: translateY(-50%);
-
       background: var(--scroll-track);
       pointer-events: none;
       overflow: hidden;
     }
-
     .scroll-thumb {
       position: absolute;
       left: 0;
       top: 0;
-
       width: 1px;
       height: 34px;
-
       background: var(--scroll-color);
-
       transform:
         translateY(calc(var(--scroll-progress) * (230px - 34px)));
-
       will-change: transform, background-color;
     }
-
     main { overflow: hidden; }
-
     .hero {
-
       min-height: 100vh;
-
       position: relative;
-
       display: flex;
-
       align-items: stretch;
-
     }
-
     .hero::before {
-
       content: none;
-
     }
-
     .hero-inner {
-
       position: relative;
-
       z-index: 2;
-
       max-width: var(--max);
-
       width: 100%;
-
       margin: 0 auto;
-
       padding: 164px 34px 28px;
-
       display: grid;
-
       grid-template-rows: 1fr auto;
-
     }
-
     .eyebrow {
-
       font-size: 10px;
-
       letter-spacing: .23em;
-
       text-transform: uppercase;
-
       color: var(--muted);
-
       margin-bottom: 28px;
-
     }
-
     .hero-copy {
       max-width: 1000px;
       align-self: center;
       padding-bottom: 76px;
     }
-
     h1 {
-
       margin: 0;
-
       max-width: 980px;
-
       font-family: "Cormorant Garamond", Georgia, serif;
-
       font-size: clamp(50px, 14vw, 78px);
-
       line-height: 1.01;
-
       letter-spacing: -.04em;
-
       font-weight: 300;
-
     }
-
     .hero-title span {
       display: block;
     }
-
   .hero-description {
     margin: 30px 0 0;
     max-width: 560px;
@@ -666,23 +430,14 @@
     line-height: 1.72;
     color: var(--copy);
   }
-
   .hero-sub {
-
       margin: 42px 0 0 auto;
-
       max-width: 470px;
-
       font-size: 15px;
-
       line-height: 1.72;
-
       color: var(--copy);
-
     }
-
   /* Procedural histogram — all squares share one spectrum. */
-
   .hero-histogram {
     position: absolute;
     right: 28px;
@@ -693,336 +448,181 @@
     opacity: .94;
   }
 .hero-histogram svg {
-
     display: block;
-
     width: 100%;
-
     height: 100%;
-
     overflow: visible;
-
   }
-
   .hero-footer {
-
     border-top: 1px solid var(--line);
-
     padding-top: 18px;
-
     display: flex;
-
     align-items: center;
-
     gap: 22px;
-
     font-size: 10px;
-
     letter-spacing: .16em;
-
     text-transform: uppercase;
-
     color: var(--muted);
-
   }
-
   .spectrum-line {
-
       flex: 1;
-
       height: 1px;
-
       min-width: 160px;
-
       margin: 0 12px;
-
       background: linear-gradient(
-
         90deg,
-
         var(--champagne),
-
         var(--rose),
-
         var(--lavender),
-
         var(--peri)
-
       );
-
       border-radius: 999px;
-
       opacity: .9;
-
     }
-
     .section {
-
       max-width: var(--max);
-
       margin: 0 auto;
-
       padding: 0 34px;
-
     }
-
     .practice-head {
-
       padding: 120px 0 54px;
-
       display: flex;
-
       align-items: end;
-
       justify-content: space-between;
-
       gap: 30px;
-
     }
-
     .practice-head h2 {
-
       margin: 0;
-
       font-family: "Cormorant Garamond", Georgia, serif;
-
       font-size: clamp(48px, 5vw, 78px);
-
       font-weight: 300;
-
       letter-spacing: -.03em;
-
     }
-
     .practice-head p {
-
       margin: 0;
-
       max-width: 430px;
-
       color: var(--muted);
-
       font-size: 14px;
-
       line-height: 1.7;
-
     }
-
     .practice-list {
-
       border-bottom: 1px solid var(--line);
-
     }
-
     .practice-item {
-
       min-height: 270px;
-
       border-top: 1px solid var(--line);
-
       display: grid;
-
       grid-template-columns: 90px 1.1fr 1fr 42px;
-
       gap: 28px;
-
       align-items: center;
-
       position: relative;
-
       isolation: isolate;
-
     }
-
     .practice-item::before {
       content: "";
       position: absolute;
       inset: 18px -14px;
       z-index: -1;
       border-radius: 22px;
-
-      background: linear-gradient(
+background: linear-gradient(
         90deg,
         var(--practice-hover-a),
         var(--practice-hover-b),
         var(--practice-hover-c),
         var(--practice-hover-d)
       );
-
       opacity: 0;
       transition: opacity .35s ease;
     }
-
     .practice-item:hover::before {
       opacity: 1;
     }
-
     .practice-number {
-
       align-self: start;
-
       padding-top: 36px;
-
       font-size: 10px;
-
       letter-spacing: .15em;
-
       color: var(--muted);
-
     }
-
     .practice-title {
-
       font-family: "Cormorant Garamond", Georgia, serif;
-
       font-size: clamp(50px, 5.6vw, 86px);
-
       letter-spacing: -.04em;
-
       font-weight: 300;
-
     }
-
     .practice-desc {
-
       max-width: 480px;
-
       font-size: 14px;
-
       line-height: 1.75;
-
       color: var(--practice-copy);
-
     }
-
     .arrow {
-
       width: 34px;
-
       height: 34px;
-
       border-radius: 50%;
-
       border: 1px solid var(--line);
-
       display: grid;
-
       place-items: center;
-
       transition: transform .25s ease, border-color .25s ease;
-
     }
-
     .practice-item:hover .arrow {
-
       transform: translate(4px, -2px);
-
       border-color: var(--peri);
-
     }
-
     .manifesto {
-
       padding-top: 160px;
-
       padding-bottom: 160px;
-
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 80px;
-
       align-items: start;
-
     }
-
     .manifesto-label {
-
       font-size: 10px;
-
       letter-spacing: .2em;
-
       text-transform: uppercase;
-
       color: var(--muted);
-
     }
-
     .manifesto-quote {
-
       font-family: "Cormorant Garamond", Georgia, serif;
-
       font-size: clamp(42px, 4.3vw, 67px);
-
       line-height: 1.03;
-
       letter-spacing: -.025em;
-
     }
-
     .manifesto-quote em {
-
       font-weight: 300;
-
-      background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c));
-
+background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c));
       -webkit-background-clip: text;
-
       background-clip: text;
-
       color: transparent;
-
     }
-
     footer {
-
       border-top: 1px solid var(--line);
-
       padding: 32px 0 42px;
-
       display: flex;
-
       justify-content: space-between;
-
       gap: 30px;
-
       color: var(--muted);
-
       font-size: 11px;
-
     }
-
     .footer-links {
-
       display: flex;
-
       gap: 22px;
-
     }
-
     @media (max-width: 820px) {
-
       .header-inner { padding: 0 20px; }
-
       nav { display: none; }
-
       .scroll-rail { display: none; }
-
       .hero-inner, .section { padding-left: 20px; padding-right: 20px; }
-
       .hero-inner { padding-top: 128px; padding-bottom: 30px; }
-
       .hero-copy {
         align-self: end;
         padding-bottom: 54px;
       }
-
       .hero-description {
         margin-left: 0;
         max-width: 88%;
       }
-
       .hero-histogram {
         right: 16px;
         bottom: 176px;
@@ -1030,234 +630,150 @@
         height: 145px;
         opacity: .84;
       }
-
       h1 { font-size: clamp(58px, 17vw, 92px); }
-
       .hero-title span {
         display: inline;
       }
-
       .hero-sub { margin-left: 0; max-width: 88%; }
-
       .hero-footer { flex-direction: column; }
-
       .practice-head { align-items: start; flex-direction: column; padding-top: 84px; }
-
       .practice-item {
-
         grid-template-columns: 46px 1fr 34px;
-
         min-height: 240px;
-
         padding: 30px 0;
-
       }
-
       .practice-number { grid-column: 1; padding-top: 10px; }
-
       .practice-title { grid-column: 2; }
-
       .practice-desc { grid-column: 2; }
-
       .arrow { grid-column: 3; grid-row: 1 / span 3; }
-
       .manifesto { grid-template-columns: 1fr; gap: 36px; padding-top: 110px; padding-bottom: 110px; }
-
       footer { flex-direction: column; }
-
     }
-
     /* Localized typography: one shared layout, with system fonts for CJK. */
     html[lang="zh-CN"] {
       --localized-body-font: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
       --localized-display-font: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
     }
-
     html[lang="ja"] {
       --localized-body-font: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
       --localized-display-font: "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
     }
-
     html:is([lang="zh-CN"], [lang="ja"]) body {
       font-family: var(--localized-body-font);
       font-weight: 300;
     }
-
     html:is([lang="zh-CN"], [lang="ja"]) :is(h1, .practice-head h2, .practice-title, .manifesto-quote) {
       font-family: var(--localized-display-font);
       font-weight: 300;
       letter-spacing: 0;
       line-height: 1.35;
     }
-
     html:is([lang="zh-CN"], [lang="ja"]) h1 {
       font-size: clamp(42px, 6vw, 66px);
     }
-
     html:is([lang="zh-CN"], [lang="ja"]) .practice-head h2 {
       font-size: clamp(38px, 4.2vw, 64px);
     }
-
     html:is([lang="zh-CN"], [lang="ja"]) .practice-title {
       font-size: clamp(38px, 4.5vw, 68px);
     }
-
     html:is([lang="zh-CN"], [lang="ja"]) .manifesto-quote {
       font-size: clamp(32px, 3.5vw, 54px);
       line-height: 1.5;
     }
-
     html:is([lang="zh-CN"], [lang="ja"]) :is(.eyebrow, .hero-footer, .manifesto-label, .appearance-label, .language-label) {
       letter-spacing: .04em;
     }
-
     html:not([lang="en"]) .hero-title {
       text-wrap: balance;
     }
-
     html:not([lang="en"]) .hero-title span {
       display: inline;
     }
-
     html[lang="fr"] .practice-title {
       hyphens: auto;
     }
-
     @media (max-width: 820px) {
       html:is([lang="zh-CN"], [lang="ja"]) h1 {
         font-size: clamp(38px, 10vw, 66px);
       }
     }
-
   </style>
-
 </head>
-
 <body>
-
   <div class="scroll-rail" id="scrollRail" aria-hidden="true">
     <div class="scroll-thumb"></div>
   </div>
-
   <header class="site-header">
-
     <div class="header-inner">
-
       <a class="brand" href="#top">Qihang Studio™</a>
-
       <div class="nav-wrap">
-
         <nav aria-label="Primary navigation" data-i18n-aria-label="nav.label">
-
           <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
-
           <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
-
           <a href="#about" data-i18n="nav.about">About</a>
-
         </nav>
-
         <div class="appearance">
-
           <button
             class="appearance-button"
             id="themeButton"
             aria-label="Choose appearance"
             aria-expanded="false"
             aria-haspopup="true">
-
             <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="1.45" aria-hidden="true">
               <circle cx="12" cy="12" r="3.5"></circle>
               <path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5 7 7M17 17l1.5 1.5M18.5 5.5 17 7M7 17l-1.5 1.5"></path>
             </svg>
-
             <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="1.45" aria-hidden="true">
               <path d="M19.4 15.2A7.8 7.8 0 0 1 8.8 4.6 7.9 7.9 0 1 0 19.4 15.2Z"></path>
             </svg>
-
           </button>
-
           <div class="appearance-menu" id="themeMenu">
-
             <div class="appearance-label" data-i18n="appearance.label">Appearance</div>
-
             <button class="theme-option" data-theme-choice="system">
               <span data-i18n="appearance.system">System</span><span></span>
             </button>
-
             <button class="theme-option" data-theme-choice="light">
               <span data-i18n="appearance.light">Light</span><span></span>
             </button>
-
             <button class="theme-option" data-theme-choice="dark">
               <span data-i18n="appearance.dark">Dark</span><span></span>
             </button>
-
           </div>
-
         </div>
-
         <div class="language">
-
           <button class="language-button" id="languageButton" aria-label="Choose language" data-i18n-aria-label="language.choose" aria-expanded="false">
-
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45" aria-hidden="true">
-
               <circle cx="12" cy="12" r="8.3"></circle>
-
               <path d="M3.9 12h16.2M12 3.7c2.2 2.3 3.4 5.1 3.4 8.3S14.2 18 12 20.3C9.8 18 8.6 15.2 8.6 12S9.8 6 12 3.7Z"></path>
-
             </svg>
-
           </button>
-
           <div class="language-menu" id="languageMenu">
-
             <div class="language-label" data-i18n="language.label">Language</div>
-
             <button class="language-option" data-lang="en" aria-pressed="true"><span lang="en">English</span><span class="check" aria-hidden="true">✓</span></button>
-
             <button class="language-option" data-lang="zh" aria-pressed="false"><span lang="zh-CN">中文</span><span class="check" aria-hidden="true"></span></button>
-
             <button class="language-option" data-lang="ja" aria-pressed="false"><span lang="ja">日本語</span><span class="check" aria-hidden="true"></span></button>
-
             <button class="language-option" data-lang="fr" aria-pressed="false"><span lang="fr">Français</span><span class="check" aria-hidden="true"></span></button>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   </header>
-
     <main id="top">
-
       <section class="hero">
-
         <div class="hero-inner">
-
           <div class="hero-copy">
-
             <h1 class="hero-title">
               <span data-i18n="hero.titleLine1">Data, image, and stories</span>
               <span data-i18n="hero.titleLine2">in conversation.</span>
             </h1>
-
             <p class="hero-description" data-i18n="hero.description">
-
               A personal studio for statistical thinking, visual practice,
-
               and experiments in how information can be understood — and seen.
-
             </p>
-
           </div>
-
         <div class="hero-histogram" aria-hidden="true">
           <svg id="heroHistogram" role="presentation">
             <defs>
@@ -1270,7 +786,6 @@
                 <stop offset="100%" style="stop-color: var(--peri)" />
               </linearGradient>
             </defs>
-
             <g
               id="histogramSquares"
               fill="none"
@@ -1280,125 +795,65 @@
             </g>
           </svg>
         </div>
-
         <div class="hero-footer">
-
             <span>Qihang Cheng · <span data-i18n="hero.location">Ann Arbor / Nanjing</span></span>
-
             <div class="spectrum-line" aria-hidden="true"></div>
-
             <span><span data-i18n="hero.studio">Studio</span> / 2026</span>
-
           </div>
-
         </div>
-
       </section>
-
     <section class="section" aria-labelledby="practiceTitle">
-
       <div class="practice-head">
-
         <div>
-
           <div class="eyebrow" data-i18n="practice.label">Explore</div>
-
           <h2 id="practiceTitle" data-i18n="practice.title">Three ways in.</h2>
-
         </div>
-
         <p data-i18n="practice.description">
-
           The site is intentionally simple for now: three spaces, each reflecting a different way I work — analytical, visual, and personal.
-
         </p>
-
       </div>
-
       <div class="practice-list">
-
         <a class="practice-item" id="solutions" href="#">
-
           <div class="practice-number">01</div>
-
           <div class="practice-title" data-i18n="nav.solutions">Solutions</div>
-
           <div class="practice-desc" data-i18n="solutions.description">Data analysis, statistical reasoning, research, and computational work — organized around questions rather than software.</div>
-
           <div class="arrow" aria-hidden="true">↗</div>
-
         </a>
-
         <a class="practice-item" id="gallery" href="#">
-
           <div class="practice-number">02</div>
-
           <div class="practice-title" data-i18n="nav.gallery">Gallery</div>
-
           <div class="practice-desc" data-i18n="gallery.description">A visual archive for drawing, design, image-making, and experiments that do not need to become “projects.”</div>
-
           <div class="arrow" aria-hidden="true">↗</div>
-
         </a>
-
         <a class="practice-item" id="about" href="#">
-
           <div class="practice-number">03</div>
-
           <div class="practice-title" data-i18n="nav.about">About</div>
-
           <div class="practice-desc" data-i18n="about.description">The thread connecting art, statistics, computation, and research — plus experience, CV, and contact.</div>
-
           <div class="arrow" aria-hidden="true">↗</div>
-
         </a>
-
       </div>
-
     </section>
-
     <section class="section manifesto">
-
       <div class="manifesto-label" data-i18n="manifesto.label">Studio note</div>
-
       <div class="manifesto-quote">
-
         <span data-i18n="manifesto.before">Not everything worth understanding begins as a dataset. Some things begin as an </span><em data-i18n="manifesto.emphasis">image</em><span data-i18n="manifesto.after">, a question, or a story that has not yet been told.</span>
-
       </div>
-
     </section>
-
   </main>
-
   <div class="section">
-
     <footer>
-
       <span>© 2026 Qihang Studio</span>
-
       <div class="footer-links">
-
         <a href="https://github.com/QihangStudio"
-
           target="_blank"
-
           rel="noopener noreferrer">
-
           GitHub
-
         </a>
-
         <a href="#">LinkedIn</a>
-
         <a href="mailto:hello@example.com" data-i18n="footer.email">Email</a>
-
       </div>
-
     </footer>
-
   </div>
-
   <script>
     // ---------------------------------------------------------------
     // Local copy for the shared interface. Only marked text is replaced.
@@ -1527,21 +982,17 @@
         'footer.email': 'Courriel'
       }
     };
-
     const LANGUAGE_STORAGE_KEY = 'qihangstudio-language';
     const languageTags = { en: 'en', zh: 'zh-CN', ja: 'ja', fr: 'fr' };
     let currentLanguage = 'en';
-
     function translate(key) {
       // Nullish fallback preserves intentionally empty hero title segments.
       return translations[currentLanguage][key] ?? translations.en[key];
     }
-
     // ---------------------------------------------------------------
     // Page scroll indicator
     // ---------------------------------------------------------------
     const scrollRail = document.getElementById('scrollRail');
-
     const scrollSpectrums = {
       light: [
         { stop: 0.00, color: [239, 189, 63] },
@@ -1556,69 +1007,54 @@
         { stop: 1.00, color: [143, 162, 255] }
       ]
     };
-
     function interpolateScrollColor(progress) {
       const theme =
         document.documentElement.dataset.theme === 'dark'
           ? 'dark'
           : 'light';
-
       const scrollSpectrum = scrollSpectrums[theme];
-
       for (let i = 0; i < scrollSpectrum.length - 1; i++) {
         const a = scrollSpectrum[i];
         const b = scrollSpectrum[i + 1];
-
         if (progress <= b.stop) {
           const local =
             (progress - a.stop) / (b.stop - a.stop);
-
           const channel = (index) =>
             Math.round(
               a.color[index] +
               (b.color[index] - a.color[index]) * local
             );
-
           return `rgb(${channel(0)}, ${channel(1)}, ${channel(2)})`;
         }
       }
-
       const last = scrollSpectrum[scrollSpectrum.length - 1].color;
       return `rgb(${last[0]}, ${last[1]}, ${last[2]})`;
     }
-
     function updateScrollProgress() {
       if (!scrollRail) return;
-
       const scrollable =
         document.documentElement.scrollHeight - window.innerHeight;
-
       const progress =
         scrollable > 0
           ? Math.min(1, Math.max(0, window.scrollY / scrollable))
           : 0;
-
       scrollRail.style.setProperty('--scroll-progress', progress);
       scrollRail.style.setProperty(
         '--scroll-color',
         interpolateScrollColor(progress)
       );
     }
-
     updateScrollProgress();
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
     window.addEventListener('resize', updateScrollProgress);
-
     // ---------------------------------------------------------------
     // Appearance: System / Light / Dark
     // ---------------------------------------------------------------
     const THEME_STORAGE_KEY = 'qihangstudio-theme';
-
     const themeButton = document.getElementById('themeButton');
     const themeMenu = document.getElementById('themeMenu');
     const themeOptions = [...document.querySelectorAll('.theme-option')];
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
-
     function getThemePreference() {
       try {
         return localStorage.getItem(THEME_STORAGE_KEY) || 'system';
@@ -1626,18 +1062,15 @@
         return 'system';
       }
     }
-
     function resolveTheme(preference) {
       if (preference === 'system') {
         return systemTheme.matches ? 'dark' : 'light';
       }
       return preference;
     }
-
     function updateThemeChecks(preference) {
       themeOptions.forEach((option) => {
         option.querySelector('.check')?.remove();
-
         if (option.dataset.themeChoice === preference) {
           const check = document.createElement('span');
           check.className = 'check';
@@ -1646,50 +1079,39 @@
         }
       });
     }
-
     function applyTheme(preference, persist = true) {
       const resolved = resolveTheme(preference);
-
       document.documentElement.dataset.theme = resolved;
       document.documentElement.dataset.themePreference = preference;
-
       if (persist) {
         try {
           localStorage.setItem(THEME_STORAGE_KEY, preference);
         } catch (_) {}
       }
-
       updateThemeChecks(preference);
       updateScrollProgress();
-
       updateAppearanceLabel();
     }
-
     function updateAppearanceLabel() {
       const { themePreference, theme } = document.documentElement.dataset;
       themeButton.setAttribute(
         'aria-label',
         translate('appearance.status')
-          .replace('{preference}', translate(`appearance.${themePreference}`))
-          .replace('{theme}', translate(`appearance.${theme}`))
+.replace('{preference}', translate(`appearance.${themePreference}`))
+.replace('{theme}', translate(`appearance.${theme}`))
       );
     }
-
     function setThemeMenuOpen(open) {
       themeMenu.classList.toggle('open', open);
       themeButton.setAttribute('aria-expanded', String(open));
     }
-
     applyTheme(getThemePreference(), false);
-
     themeButton.addEventListener('click', (event) => {
       event.stopPropagation();
-
       const willOpen = !themeMenu.classList.contains('open');
       setThemeMenuOpen(willOpen);
       setLanguageMenuOpen(false);
     });
-
     themeOptions.forEach((option) => {
       option.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -1697,20 +1119,17 @@
         setThemeMenuOpen(false);
       });
     });
-
     systemTheme.addEventListener('change', () => {
       if (getThemePreference() === 'system') {
         applyTheme('system', false);
       }
     });
-
     // ---------------------------------------------------------------
     // Language menu and localization
     // ---------------------------------------------------------------
     const languageButton = document.getElementById('languageButton');
     const languageMenu = document.getElementById('languageMenu');
     const languageOptions = [...document.querySelectorAll('.language-option')];
-
     function getLanguagePreference() {
       try {
         return localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en';
@@ -1718,18 +1137,14 @@
         return 'en';
       }
     }
-
     function applyLanguage(language, persist = true) {
       currentLanguage = Object.prototype.hasOwnProperty.call(translations, language)
         ? language
         : 'en';
-
       document.documentElement.lang = languageTags[currentLanguage];
-
       document.querySelectorAll('[data-i18n]').forEach((element) => {
         element.textContent = translate(element.dataset.i18n);
       });
-
       // Only these explicit attributes are localized; markup is never injected.
       document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
         element.setAttribute('aria-label', translate(element.dataset.i18nAriaLabel));
@@ -1737,49 +1152,38 @@
       document.querySelectorAll('[data-i18n-content]').forEach((element) => {
         element.setAttribute('content', translate(element.dataset.i18nContent));
       });
-
       languageOptions.forEach((option) => {
         const selected = option.dataset.lang === currentLanguage;
         option.querySelector('.check').textContent = selected ? '✓' : '';
         option.setAttribute('aria-pressed', String(selected));
       });
-
       updateAppearanceLabel();
       // Translated copy can change the page height without a window resize.
       updateScrollProgress();
-
       if (persist) {
         try {
           localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
         } catch (_) {}
       }
     }
-
     function setLanguageMenuOpen(open) {
       languageMenu.classList.toggle('open', open);
       languageButton.setAttribute('aria-expanded', String(open));
     }
-
     applyLanguage(getLanguagePreference(), false);
-
     languageButton.addEventListener('click', (event) => {
       event.stopPropagation();
-
       const willOpen = !languageMenu.classList.contains('open');
       setLanguageMenuOpen(willOpen);
       setThemeMenuOpen(false);
     });
-
     languageOptions.forEach((option) => {
       option.addEventListener('click', (event) => {
         event.stopPropagation();
-
         applyLanguage(option.dataset.lang);
         setLanguageMenuOpen(false);
       });
     });
-
-
     // ---------------------------------------------------------------
     // Procedural histogram
     // ---------------------------------------------------------------
@@ -1787,93 +1191,70 @@
       const svg = document.getElementById('heroHistogram');
       const group = document.getElementById('histogramSquares');
       const gradient = document.getElementById('histogramSpectrum');
-
       if (!svg || !group || !gradient) return;
-
       const SVG_NS = 'http://www.w3.org/2000/svg';
-
       // Shared geometry for every square.
       const square = 18;
       const gap = 7;
       const step = square + gap;
-
       // This is the "personality" of the graphic:
       // mostly low on the left, increasingly tall toward the right,
       // with a few intentional dips so it does not look too mechanical.
       const baseHeights = [1, 1, 2, 2, 3, 2, 4, 3, 5, 4, 6, 8];
       const maxHeight = 8;
-
       const width =
         baseHeights.length * square +
         (baseHeights.length - 1) * gap;
-
       const height =
         maxHeight * square +
         (maxHeight - 1) * gap;
-
       svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-
       // One shared color field across the entire histogram.
       gradient.setAttribute('x1', '0');
       gradient.setAttribute('y1', String(height));
       gradient.setAttribute('x2', String(width));
       gradient.setAttribute('y2', '0');
-
       group.replaceChildren();
-
       // Most columns stay unchanged; some move up/down by exactly one square.
       // This keeps each visit recognizably the same composition.
       const jitterChoices = [-1, 0, 0, 0, 0, 1];
-
       const heights = baseHeights.map((base, index) => {
         let value =
           base +
           jitterChoices[Math.floor(Math.random() * jitterChoices.length)];
-
         // Keep the left edge quiet.
         if (index < 2) value = 1;
-
         // Preserve the strong right-side visual weight.
         if (index === baseHeights.length - 3) value = Math.max(value, 4);
         if (index === baseHeights.length - 2) value = Math.max(value, 5);
         if (index === baseHeights.length - 1) value = Math.max(value, 7);
-
         return Math.max(1, Math.min(maxHeight, value));
       });
-
       const baseline = height - square;
-
       heights.forEach((columnHeight, column) => {
         for (let row = 0; row < columnHeight; row++) {
           const rect = document.createElementNS(SVG_NS, 'rect');
-
           rect.setAttribute('x', String(column * step));
           rect.setAttribute('y', String(baseline - row * step));
           rect.setAttribute('width', String(square));
           rect.setAttribute('height', String(square));
-
           group.appendChild(rect);
         }
       });
     }
-
     generateHistogram();
-
     // Click anywhere in the hero to gently reshuffle the histogram.
     // Links and buttons are ignored so normal UI interactions are unaffected.
     const hero = document.querySelector('.hero');
-
     hero?.addEventListener('click', (event) => {
       if (event.target.closest('a, button')) return;
       generateHistogram();
     });
-
     // Close either menu when the user clicks elsewhere or presses Escape.
     document.addEventListener('click', () => {
       setThemeMenuOpen(false);
       setLanguageMenuOpen(false);
     });
-
     window.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         setThemeMenuOpen(false);
@@ -1881,7 +1262,5 @@
       }
     });
   </script>
-
 </body>
-
 </html>
