@@ -10,7 +10,7 @@
 
   <title>Qihang Studio</title>
 
-  <meta name="description" content="Qihang Studio — data, image, and the stories between them." />
+  <meta name="description" data-i18n-content="meta.description" content="Qihang Studio — data, image, and the stories between them." />
 
   <script>
     (() => {
@@ -1067,6 +1067,68 @@
 
     }
 
+    /* Localized typography: one shared layout, with system fonts for CJK. */
+    html[lang="zh-CN"] {
+      --localized-body-font: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+      --localized-display-font: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+    }
+
+    html[lang="ja"] {
+      --localized-body-font: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+      --localized-display-font: "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
+    }
+
+    html:is([lang="zh-CN"], [lang="ja"]) body {
+      font-family: var(--localized-body-font);
+      font-weight: 300;
+    }
+
+    html:is([lang="zh-CN"], [lang="ja"]) :is(h1, .practice-head h2, .practice-title, .manifesto-quote) {
+      font-family: var(--localized-display-font);
+      font-weight: 300;
+      letter-spacing: 0;
+      line-height: 1.35;
+    }
+
+    html:is([lang="zh-CN"], [lang="ja"]) h1 {
+      font-size: clamp(42px, 6vw, 66px);
+    }
+
+    html:is([lang="zh-CN"], [lang="ja"]) .practice-head h2 {
+      font-size: clamp(38px, 4.2vw, 64px);
+    }
+
+    html:is([lang="zh-CN"], [lang="ja"]) .practice-title {
+      font-size: clamp(38px, 4.5vw, 68px);
+    }
+
+    html:is([lang="zh-CN"], [lang="ja"]) .manifesto-quote {
+      font-size: clamp(32px, 3.5vw, 54px);
+      line-height: 1.5;
+    }
+
+    html:is([lang="zh-CN"], [lang="ja"]) :is(.eyebrow, .hero-footer, .manifesto-label, .appearance-label, .language-label) {
+      letter-spacing: .04em;
+    }
+
+    html:not([lang="en"]) .hero-title {
+      text-wrap: balance;
+    }
+
+    html:not([lang="en"]) .hero-title span {
+      display: inline;
+    }
+
+    html[lang="fr"] .practice-title {
+      hyphens: auto;
+    }
+
+    @media (max-width: 820px) {
+      html:is([lang="zh-CN"], [lang="ja"]) h1 {
+        font-size: clamp(38px, 10vw, 66px);
+      }
+    }
+
   </style>
 
 </head>
@@ -1085,13 +1147,13 @@
 
       <div class="nav-wrap">
 
-        <nav aria-label="Primary navigation">
+        <nav aria-label="Primary navigation" data-i18n-aria-label="nav.label">
 
-          <a href="#solutions">Solutions</a>
+          <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
 
-          <a href="#gallery">Gallery</a>
+          <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
 
-          <a href="#about">About</a>
+          <a href="#about" data-i18n="nav.about">About</a>
 
         </nav>
 
@@ -1119,18 +1181,18 @@
 
           <div class="appearance-menu" id="themeMenu">
 
-            <div class="appearance-label">Appearance</div>
+            <div class="appearance-label" data-i18n="appearance.label">Appearance</div>
 
             <button class="theme-option" data-theme-choice="system">
-              <span>System</span><span></span>
+              <span data-i18n="appearance.system">System</span><span></span>
             </button>
 
             <button class="theme-option" data-theme-choice="light">
-              <span>Light</span><span></span>
+              <span data-i18n="appearance.light">Light</span><span></span>
             </button>
 
             <button class="theme-option" data-theme-choice="dark">
-              <span>Dark</span><span></span>
+              <span data-i18n="appearance.dark">Dark</span><span></span>
             </button>
 
           </div>
@@ -1139,7 +1201,7 @@
 
         <div class="language">
 
-          <button class="language-button" id="languageButton" aria-label="Choose language" aria-expanded="false">
+          <button class="language-button" id="languageButton" aria-label="Choose language" data-i18n-aria-label="language.choose" aria-expanded="false">
 
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45" aria-hidden="true">
 
@@ -1153,15 +1215,15 @@
 
           <div class="language-menu" id="languageMenu">
 
-            <div class="language-label">Language</div>
+            <div class="language-label" data-i18n="language.label">Language</div>
 
-            <button class="language-option" data-lang="en"><span>English</span><span class="check">✓</span></button>
+            <button class="language-option" data-lang="en" aria-pressed="true"><span lang="en">English</span><span class="check" aria-hidden="true">✓</span></button>
 
-            <button class="language-option" data-lang="zh"><span>中文</span><span></span></button>
+            <button class="language-option" data-lang="zh" aria-pressed="false"><span lang="zh-CN">中文</span><span class="check" aria-hidden="true"></span></button>
 
-            <button class="language-option" data-lang="ja"><span>日本語</span><span></span></button>
+            <button class="language-option" data-lang="ja" aria-pressed="false"><span lang="ja">日本語</span><span class="check" aria-hidden="true"></span></button>
 
-            <button class="language-option" data-lang="fr"><span>Français</span><span></span></button>
+            <button class="language-option" data-lang="fr" aria-pressed="false"><span lang="fr">Français</span><span class="check" aria-hidden="true"></span></button>
 
           </div>
 
@@ -1182,11 +1244,11 @@
           <div class="hero-copy">
 
             <h1 class="hero-title">
-              <span>Data, image, and stories</span>
-              <span>in conversation.</span>
+              <span data-i18n="hero.titleLine1">Data, image, and stories</span>
+              <span data-i18n="hero.titleLine2">in conversation.</span>
             </h1>
 
-            <p class="hero-description">
+            <p class="hero-description" data-i18n="hero.description">
 
               A personal studio for statistical thinking, visual practice,
 
@@ -1221,11 +1283,11 @@
 
         <div class="hero-footer">
 
-            <span>Qihang Cheng · Ann Arbor / Nanjing</span>
+            <span>Qihang Cheng · <span data-i18n="hero.location">Ann Arbor / Nanjing</span></span>
 
             <div class="spectrum-line" aria-hidden="true"></div>
 
-            <span>Studio / 2026</span>
+            <span><span data-i18n="hero.studio">Studio</span> / 2026</span>
 
           </div>
 
@@ -1239,13 +1301,13 @@
 
         <div>
 
-          <div class="eyebrow">Explore</div>
+          <div class="eyebrow" data-i18n="practice.label">Explore</div>
 
-          <h2 id="practiceTitle">Three ways in.</h2>
+          <h2 id="practiceTitle" data-i18n="practice.title">Three ways in.</h2>
 
         </div>
 
-        <p>
+        <p data-i18n="practice.description">
 
           The site is intentionally simple for now: three spaces, each reflecting a different way I work — analytical, visual, and personal.
 
@@ -1259,9 +1321,9 @@
 
           <div class="practice-number">01</div>
 
-          <div class="practice-title">Solutions</div>
+          <div class="practice-title" data-i18n="nav.solutions">Solutions</div>
 
-          <div class="practice-desc">Data analysis, statistical reasoning, research, and computational work — organized around questions rather than software.</div>
+          <div class="practice-desc" data-i18n="solutions.description">Data analysis, statistical reasoning, research, and computational work — organized around questions rather than software.</div>
 
           <div class="arrow" aria-hidden="true">↗</div>
 
@@ -1271,9 +1333,9 @@
 
           <div class="practice-number">02</div>
 
-          <div class="practice-title">Gallery</div>
+          <div class="practice-title" data-i18n="nav.gallery">Gallery</div>
 
-          <div class="practice-desc">A visual archive for drawing, design, image-making, and experiments that do not need to become “projects.”</div>
+          <div class="practice-desc" data-i18n="gallery.description">A visual archive for drawing, design, image-making, and experiments that do not need to become “projects.”</div>
 
           <div class="arrow" aria-hidden="true">↗</div>
 
@@ -1283,9 +1345,9 @@
 
           <div class="practice-number">03</div>
 
-          <div class="practice-title">About</div>
+          <div class="practice-title" data-i18n="nav.about">About</div>
 
-          <div class="practice-desc">The thread connecting art, statistics, computation, and research — plus experience, CV, and contact.</div>
+          <div class="practice-desc" data-i18n="about.description">The thread connecting art, statistics, computation, and research — plus experience, CV, and contact.</div>
 
           <div class="arrow" aria-hidden="true">↗</div>
 
@@ -1297,11 +1359,11 @@
 
     <section class="section manifesto">
 
-      <div class="manifesto-label">Studio note</div>
+      <div class="manifesto-label" data-i18n="manifesto.label">Studio note</div>
 
       <div class="manifesto-quote">
 
-        Not everything worth understanding begins as a dataset. Some things begin as an <em>image</em>, a question, or a story that has not yet been told.
+        <span data-i18n="manifesto.before">Not everything worth understanding begins as a dataset. Some things begin as an </span><em data-i18n="manifesto.emphasis">image</em><span data-i18n="manifesto.after">, a question, or a story that has not yet been told.</span>
 
       </div>
 
@@ -1329,7 +1391,7 @@
 
         <a href="#">LinkedIn</a>
 
-        <a href="mailto:hello@example.com">Email</a>
+        <a href="mailto:hello@example.com" data-i18n="footer.email">Email</a>
 
       </div>
 
@@ -1338,6 +1400,143 @@
   </div>
 
   <script>
+    // ---------------------------------------------------------------
+    // Local copy for the shared interface. Only marked text is replaced.
+    // Non-English hero titles wrap naturally in the first shared span.
+    // Keep manifesto segments adjacent to preserve language-specific spacing.
+    // ---------------------------------------------------------------
+    const translations = {
+      en: {
+        'meta.description': 'Qihang Studio — data, image, and the stories between them.',
+        'nav.label': 'Primary navigation',
+        'nav.solutions': 'Solutions',
+        'nav.gallery': 'Gallery',
+        'nav.about': 'About',
+        'appearance.label': 'Appearance',
+        'appearance.system': 'System',
+        'appearance.light': 'Light',
+        'appearance.dark': 'Dark',
+        'appearance.status': 'Appearance: {preference}. Current theme: {theme}.',
+        'language.label': 'Language',
+        'language.choose': 'Choose language',
+        'hero.titleLine1': 'Data, image, and stories',
+        'hero.titleLine2': 'in conversation.',
+        'hero.description': 'A personal studio for statistical thinking, visual practice, and experiments in how information can be understood — and seen.',
+        'hero.location': 'Ann Arbor / Nanjing',
+        'hero.studio': 'Studio',
+        'practice.label': 'Explore',
+        'practice.title': 'Three ways in.',
+        'practice.description': 'The site is intentionally simple for now: three spaces, each reflecting a different way I work — analytical, visual, and personal.',
+        'solutions.description': 'Data analysis, statistical reasoning, research, and computational work — organized around questions rather than software.',
+        'gallery.description': 'A visual archive for drawing, design, image-making, and experiments that do not need to become “projects.”',
+        'about.description': 'The thread connecting art, statistics, computation, and research — plus experience, CV, and contact.',
+        'manifesto.label': 'Studio note',
+        'manifesto.before': 'Not everything worth understanding begins as a dataset. Some things begin as an ',
+        'manifesto.emphasis': 'image',
+        'manifesto.after': ', a question, or a story that has not yet been told.',
+        'footer.email': 'Email'
+      },
+      zh: {
+        'meta.description': 'Qihang Studio — 数据、影像，以及其间的故事。',
+        'nav.label': '主导航',
+        'nav.solutions': '方法',
+        'nav.gallery': '图集',
+        'nav.about': '关于',
+        'appearance.label': '外观',
+        'appearance.system': '跟随系统',
+        'appearance.light': '浅色',
+        'appearance.dark': '深色',
+        'appearance.status': '外观设置：{preference}。当前主题：{theme}。',
+        'language.label': '语言',
+        'language.choose': '选择语言',
+        'hero.titleLine1': '让数据、影像与故事彼此对话。',
+        'hero.titleLine2': '',
+        'hero.description': '一个个人工作室，以统计思维与视觉实践，探索理解信息、看见信息的不同方式。',
+        'hero.location': '安娜堡 / 南京',
+        'hero.studio': '工作室',
+        'practice.label': '探索',
+        'practice.title': '三个入口。',
+        'practice.description': '网站暂且保持简单：三个空间，分别呈现我的分析探索、视觉实践与个人经历。',
+        'solutions.description': '数据分析、统计推理、研究与计算——从问题出发，而非围绕软件展开。',
+        'gallery.description': '收录绘画、设计与影像创作，也留下一些不必成为「项目」的实验。',
+        'about.description': '串联艺术、统计、计算与研究的线索，以及个人经历、简历与联系方式。',
+        'manifesto.label': '工作室手记',
+        'manifesto.before': '值得理解的事物，并非都始于数据。有些始于一幅',
+        'manifesto.emphasis': '影像',
+        'manifesto.after': '、一个问题，或一段尚未讲述的故事。',
+        'footer.email': '邮件'
+      },
+      ja: {
+        'meta.description': 'Qihang Studio — データ、イメージ、そのあいだにある物語。',
+        'nav.label': 'メインナビゲーション',
+        'nav.solutions': 'アプローチ',
+        'nav.gallery': 'ギャラリー',
+        'nav.about': '私について',
+        'appearance.label': '外観',
+        'appearance.system': 'システム',
+        'appearance.light': 'ライト',
+        'appearance.dark': 'ダーク',
+        'appearance.status': '外観設定：{preference}。現在のテーマ：{theme}。',
+        'language.label': '言語',
+        'language.choose': '言語を選ぶ',
+        'hero.titleLine1': 'データ、イメージ、物語が交わる。',
+        'hero.titleLine2': '',
+        'hero.description': '統計的思考と視覚表現を通して、情報の捉え方、見え方を探る個人スタジオ。',
+        'hero.location': 'アナーバー / 南京',
+        'hero.studio': 'スタジオ',
+        'practice.label': '探索',
+        'practice.title': '三つの入口。',
+        'practice.description': '今は、シンプルな構成に。分析、視覚表現、そして私自身について。三つの場所から、日々の取り組みを紹介します。',
+        'solutions.description': 'データ分析、統計的推論、研究、計算。ソフトウェアではなく、問いを起点にした取り組み。',
+        'gallery.description': 'ドローイング、デザイン、イメージの制作を集めた視覚のアーカイブ。「プロジェクト」にならない実験も、ここに。',
+        'about.description': 'アート、統計、計算、研究をつなぐもの。これまでの歩み、経歴、連絡先も。',
+        'manifesto.label': 'スタジオノート',
+        'manifesto.before': '理解したいことのすべてが、データから始まるわけではない。一つの',
+        'manifesto.emphasis': 'イメージ',
+        'manifesto.after': 'や問い、まだ語られていない物語から始まることもある。',
+        'footer.email': 'メール'
+      },
+      fr: {
+        'meta.description': 'Qihang Studio — données, images et récits qui les relient.',
+        'nav.label': 'Navigation principale',
+        'nav.solutions': 'Approches',
+        'nav.gallery': 'Galerie',
+        'nav.about': 'À propos',
+        'appearance.label': 'Apparence',
+        'appearance.system': 'Système',
+        'appearance.light': 'Clair',
+        'appearance.dark': 'Sombre',
+        'appearance.status': 'Apparence : {preference}. Thème actuel : {theme}.',
+        'language.label': 'Langue',
+        'language.choose': 'Choisir la langue',
+        'hero.titleLine1': 'Données, images et récits en dialogue.',
+        'hero.titleLine2': '',
+        'hero.description': 'Un atelier personnel où se croisent réflexion statistique, pratique visuelle et expérimentations sur nos façons de comprendre — et de voir — l’information.',
+        'hero.location': 'Ann Arbor / Nankin',
+        'hero.studio': 'Atelier',
+        'practice.label': 'Explorer',
+        'practice.title': 'Trois portes d’entrée.',
+        'practice.description': 'Pour l’instant, le site reste simple : trois espaces pour trois facettes de mon travail — analytique, visuelle et personnelle.',
+        'solutions.description': 'Analyse de données, raisonnement statistique, recherche et calcul : des travaux guidés par les questions, plutôt que par les logiciels.',
+        'gallery.description': 'Des archives visuelles de dessins, de créations graphiques, d’images et d’expériences qui n’ont pas besoin de devenir des « projets ».',
+        'about.description': 'Le fil qui relie l’art, les statistiques, le calcul et la recherche. Et aussi : mon parcours, mon CV et mes coordonnées.',
+        'manifesto.label': 'Note d’atelier',
+        'manifesto.before': 'Tout ce qui mérite d’être compris ne commence pas par des données. Parfois, tout commence par une ',
+        'manifesto.emphasis': 'image',
+        'manifesto.after': ', une question ou une histoire qui reste à raconter.',
+        'footer.email': 'Courriel'
+      }
+    };
+
+    const LANGUAGE_STORAGE_KEY = 'qihangstudio-language';
+    const languageTags = { en: 'en', zh: 'zh-CN', ja: 'ja', fr: 'fr' };
+    let currentLanguage = 'en';
+
+    function translate(key) {
+      // Nullish fallback preserves intentionally empty hero title segments.
+      return translations[currentLanguage][key] ?? translations.en[key];
+    }
+
     // ---------------------------------------------------------------
     // Page scroll indicator
     // ---------------------------------------------------------------
@@ -1463,9 +1662,16 @@
       updateThemeChecks(preference);
       updateScrollProgress();
 
+      updateAppearanceLabel();
+    }
+
+    function updateAppearanceLabel() {
+      const { themePreference, theme } = document.documentElement.dataset;
       themeButton.setAttribute(
         'aria-label',
-        `Appearance: ${preference}. Current theme: ${resolved}.`
+        translate('appearance.status')
+          .replace('{preference}', translate(`appearance.${themePreference}`))
+          .replace('{theme}', translate(`appearance.${theme}`))
       );
     }
 
@@ -1499,16 +1705,62 @@
     });
 
     // ---------------------------------------------------------------
-    // Language menu
+    // Language menu and localization
     // ---------------------------------------------------------------
     const languageButton = document.getElementById('languageButton');
     const languageMenu = document.getElementById('languageMenu');
     const languageOptions = [...document.querySelectorAll('.language-option')];
 
+    function getLanguagePreference() {
+      try {
+        return localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en';
+      } catch (_) {
+        return 'en';
+      }
+    }
+
+    function applyLanguage(language, persist = true) {
+      currentLanguage = Object.prototype.hasOwnProperty.call(translations, language)
+        ? language
+        : 'en';
+
+      document.documentElement.lang = languageTags[currentLanguage];
+
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        element.textContent = translate(element.dataset.i18n);
+      });
+
+      // Only these explicit attributes are localized; markup is never injected.
+      document.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+        element.setAttribute('aria-label', translate(element.dataset.i18nAriaLabel));
+      });
+      document.querySelectorAll('[data-i18n-content]').forEach((element) => {
+        element.setAttribute('content', translate(element.dataset.i18nContent));
+      });
+
+      languageOptions.forEach((option) => {
+        const selected = option.dataset.lang === currentLanguage;
+        option.querySelector('.check').textContent = selected ? '✓' : '';
+        option.setAttribute('aria-pressed', String(selected));
+      });
+
+      updateAppearanceLabel();
+      // Translated copy can change the page height without a window resize.
+      updateScrollProgress();
+
+      if (persist) {
+        try {
+          localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLanguage);
+        } catch (_) {}
+      }
+    }
+
     function setLanguageMenuOpen(open) {
       languageMenu.classList.toggle('open', open);
       languageButton.setAttribute('aria-expanded', String(open));
     }
+
+    applyLanguage(getLanguagePreference(), false);
 
     languageButton.addEventListener('click', (event) => {
       event.stopPropagation();
@@ -1522,13 +1774,7 @@
       option.addEventListener('click', (event) => {
         event.stopPropagation();
 
-        languageOptions.forEach((item) => item.querySelector('.check')?.remove());
-
-        const check = document.createElement('span');
-        check.className = 'check';
-        check.textContent = '✓';
-
-        option.appendChild(check);
+        applyLanguage(option.dataset.lang);
         setLanguageMenuOpen(false);
       });
     });
