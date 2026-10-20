@@ -656,6 +656,13 @@
 
     opacity: .88;
 
+    transition: opacity .18s ease, transform .18s ease;
+
+  }
+
+  .hero-histogram.is-shuffling {
+    opacity: .28;
+    transform: translateY(2px);
   }
 
   .hero-histogram svg {
@@ -1260,7 +1267,7 @@
 
       <div class="manifesto-quote">
 
-        Not everything worth understanding begins as a dataset. Some things begin as an <em>image</em>, a question, or a pattern that has not yet been named.
+        Not everything worth understanding begins as a dataset. Some things begin as an <em>image</em>, a question, or a story that has not yet been told.
 
       </div>
 
@@ -1497,6 +1504,26 @@
     }
 
     generateHistogram();
+
+    // Click anywhere in the hero to gently reshuffle the histogram.
+    // Links and buttons are ignored so normal UI interactions are unaffected.
+    const hero = document.querySelector('.hero');
+    const heroHistogram = document.querySelector('.hero-histogram');
+    let histogramIsShuffling = false;
+
+    hero?.addEventListener('click', (event) => {
+      if (event.target.closest('a, button')) return;
+      if (!heroHistogram || histogramIsShuffling) return;
+
+      histogramIsShuffling = true;
+      heroHistogram.classList.add('is-shuffling');
+
+      window.setTimeout(() => {
+        generateHistogram();
+        heroHistogram.classList.remove('is-shuffling');
+        histogramIsShuffling = false;
+      }, 140);
+    });
 
     // Close either menu when the user clicks elsewhere or presses Escape.
     document.addEventListener('click', () => {
