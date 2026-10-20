@@ -79,17 +79,24 @@
       --quote-b: #8d78b4;
       --quote-c: #6877be;
 
+      /* Scroll indicator — intentionally more saturated than the main palette. */
+      --scroll-track: rgba(119, 120, 114, 0.58);
+      --scroll-champagne: #efbd3f;
+      --scroll-rose: #eb7895;
+      --scroll-lavender: #ad69df;
+      --scroll-peri: #657cf2;
+
       --max: 1480px;
     }
 
     html[data-theme="dark"] {
       color-scheme: dark;
 
-      --bg: #151515;
-      --surface: rgba(21, 21, 21, 0.86);
+      --bg: #090909;
+      --surface: rgba(9, 9, 9, 0.90);
       --text: #efede8;
       --muted: #9c9a95;
-      --line: #343432;
+      --line: #282826;
 
       --nav-text: #c4c2bc;
       --nav-hover: #f7f4ef;
@@ -98,7 +105,7 @@
 
       --header-border: rgba(255, 255, 255, 0.075);
       --control-bg: rgba(255, 255, 255, 0.025);
-      --menu-bg: rgba(25, 25, 24, 0.96);
+      --menu-bg: rgba(14, 14, 13, 0.97);
       --menu-border: rgba(255, 255, 255, 0.10);
       --menu-shadow: 0 18px 45px rgba(0, 0, 0, 0.30);
       --control-shadow: 0 6px 22px rgba(0, 0, 0, 0.24);
@@ -117,6 +124,13 @@
       --quote-a: #c08798;
       --quote-b: #a886d1;
       --quote-c: #8494e6;
+
+      /* Brighter spectrum so the indicator stays visible on near-black. */
+      --scroll-track: rgba(156, 154, 149, 0.50);
+      --scroll-champagne: #ffd767;
+      --scroll-rose: #ff8daa;
+      --scroll-lavender: #c58cff;
+      --scroll-peri: #8fa2ff;
     }
 
     * { box-sizing: border-box; }
@@ -526,6 +540,42 @@
 
     .language-option .check { color: var(--peri); }
 
+
+    /* Scroll indicator: muted rail + one moving color segment. */
+    .scroll-rail {
+      --scroll-progress: 0;
+      --scroll-color: var(--scroll-champagne);
+
+      position: fixed;
+      z-index: 18;
+      left: 46px;
+      top: 50%;
+
+      width: 1px;
+      height: 230px;
+      transform: translateY(-50%);
+
+      background: var(--scroll-track);
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .scroll-thumb {
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      width: 1px;
+      height: 34px;
+
+      background: var(--scroll-color);
+
+      transform:
+        translateY(calc(var(--scroll-progress) * (230px - 34px)));
+
+      will-change: transform, background-color;
+    }
+
     main { overflow: hidden; }
 
     .hero {
@@ -581,13 +631,9 @@
     }
 
     .hero-copy {
-
       max-width: 1000px;
-
       align-self: center;
-
-      padding-bottom: 80px;
-
+      padding-bottom: 76px;
     }
 
     h1 {
@@ -600,7 +646,7 @@
 
       font-size: clamp(50px, 14vw, 78px);
 
-      line-height: .89;
+      line-height: 1.01;
 
       letter-spacing: -.04em;
 
@@ -608,20 +654,17 @@
 
     }
 
+    .hero-title span {
+      display: block;
+    }
+
   .hero-description {
-
-    margin: 28px 0 0;
-
-    max-width: 620px;
-
+    margin: 30px 0 0;
+    max-width: 560px;
     font-size: 15px;
-
     font-weight: 300;
-
     line-height: 1.72;
-
     color: var(--copy);
-
   }
 
   .hero-sub {
@@ -641,31 +684,15 @@
   /* Procedural histogram — all squares share one spectrum. */
 
   .hero-histogram {
-
     position: absolute;
-
-    right: 34px;
-
-    bottom: 86px;
-
-    width: 300px;
-
-    height: 198px;
-
+    right: 28px;
+    bottom: 102px;
+    width: 340px;
+    height: 224px;
     pointer-events: none;
-
-    opacity: .88;
-
-    transition: opacity .18s ease, transform .18s ease;
-
+    opacity: .94;
   }
-
-  .hero-histogram.is-shuffling {
-    opacity: .28;
-    transform: translateY(2px);
-  }
-
-  .hero-histogram svg {
+.hero-histogram svg {
 
     display: block;
 
@@ -980,27 +1007,35 @@
 
       nav { display: none; }
 
+      .scroll-rail { display: none; }
+
       .hero-inner, .section { padding-left: 20px; padding-right: 20px; }
 
       .hero-inner { padding-top: 128px; padding-bottom: 30px; }
 
-      .hero-copy { align-self: end; padding-bottom: 54px; }
+      .hero-copy {
+        align-self: end;
+        padding-bottom: 54px;
+      }
+
+      .hero-description {
+        margin-left: 0;
+        max-width: 88%;
+      }
 
       .hero-histogram {
-
-        right: 20px;
-
+        right: 16px;
         bottom: 176px;
-
-        width: 205px;
-
-        height: 135px;
-
-        opacity: .78;
-
+        width: 220px;
+        height: 145px;
+        opacity: .84;
       }
 
       h1 { font-size: clamp(58px, 17vw, 92px); }
+
+      .hero-title span {
+        display: inline;
+      }
 
       .hero-sub { margin-left: 0; max-width: 88%; }
 
@@ -1037,6 +1072,10 @@
 </head>
 
 <body>
+
+  <div class="scroll-rail" id="scrollRail" aria-hidden="true">
+    <div class="scroll-thumb"></div>
+  </div>
 
   <header class="site-header">
 
@@ -1142,14 +1181,9 @@
 
           <div class="hero-copy">
 
-            <h1>
-
-              Data, image,<br>
-
-              and the stories<br>
-
-              between them.
-
+            <h1 class="hero-title">
+              <span>Data, image, and stories</span>
+              <span>in conversation.</span>
             </h1>
 
             <p class="hero-description">
@@ -1305,6 +1339,78 @@
 
   <script>
     // ---------------------------------------------------------------
+    // Page scroll indicator
+    // ---------------------------------------------------------------
+    const scrollRail = document.getElementById('scrollRail');
+
+    const scrollSpectrums = {
+      light: [
+        { stop: 0.00, color: [239, 189, 63] },
+        { stop: 0.34, color: [235, 120, 149] },
+        { stop: 0.67, color: [173, 105, 223] },
+        { stop: 1.00, color: [101, 124, 242] }
+      ],
+      dark: [
+        { stop: 0.00, color: [255, 215, 103] },
+        { stop: 0.34, color: [255, 141, 170] },
+        { stop: 0.67, color: [197, 140, 255] },
+        { stop: 1.00, color: [143, 162, 255] }
+      ]
+    };
+
+    function interpolateScrollColor(progress) {
+      const theme =
+        document.documentElement.dataset.theme === 'dark'
+          ? 'dark'
+          : 'light';
+
+      const scrollSpectrum = scrollSpectrums[theme];
+
+      for (let i = 0; i < scrollSpectrum.length - 1; i++) {
+        const a = scrollSpectrum[i];
+        const b = scrollSpectrum[i + 1];
+
+        if (progress <= b.stop) {
+          const local =
+            (progress - a.stop) / (b.stop - a.stop);
+
+          const channel = (index) =>
+            Math.round(
+              a.color[index] +
+              (b.color[index] - a.color[index]) * local
+            );
+
+          return `rgb(${channel(0)}, ${channel(1)}, ${channel(2)})`;
+        }
+      }
+
+      const last = scrollSpectrum[scrollSpectrum.length - 1].color;
+      return `rgb(${last[0]}, ${last[1]}, ${last[2]})`;
+    }
+
+    function updateScrollProgress() {
+      if (!scrollRail) return;
+
+      const scrollable =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const progress =
+        scrollable > 0
+          ? Math.min(1, Math.max(0, window.scrollY / scrollable))
+          : 0;
+
+      scrollRail.style.setProperty('--scroll-progress', progress);
+      scrollRail.style.setProperty(
+        '--scroll-color',
+        interpolateScrollColor(progress)
+      );
+    }
+
+    updateScrollProgress();
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    window.addEventListener('resize', updateScrollProgress);
+
+    // ---------------------------------------------------------------
     // Appearance: System / Light / Dark
     // ---------------------------------------------------------------
     const THEME_STORAGE_KEY = 'qihangstudio-theme';
@@ -1355,6 +1461,8 @@
       }
 
       updateThemeChecks(preference);
+      updateScrollProgress();
+
       themeButton.setAttribute(
         'aria-label',
         `Appearance: ${preference}. Current theme: ${resolved}.`
@@ -1508,21 +1616,10 @@
     // Click anywhere in the hero to gently reshuffle the histogram.
     // Links and buttons are ignored so normal UI interactions are unaffected.
     const hero = document.querySelector('.hero');
-    const heroHistogram = document.querySelector('.hero-histogram');
-    let histogramIsShuffling = false;
 
     hero?.addEventListener('click', (event) => {
       if (event.target.closest('a, button')) return;
-      if (!heroHistogram || histogramIsShuffling) return;
-
-      histogramIsShuffling = true;
-      heroHistogram.classList.add('is-shuffling');
-
-      window.setTimeout(() => {
-        generateHistogram();
-        heroHistogram.classList.remove('is-shuffling');
-        histogramIsShuffling = false;
-      }, 140);
+      generateHistogram();
     });
 
     // Close either menu when the user clicks elsewhere or presses Escape.
