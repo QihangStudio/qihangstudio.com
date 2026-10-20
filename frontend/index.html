@@ -103,6 +103,10 @@
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
     body {
       margin: 0;
       background: var(--bg);
@@ -652,6 +656,8 @@ background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c
     }
 
     @media (max-width: 820px) {
+      /* Browser chrome may change height during scrolling; keep the hero stable. */
+      .hero { min-height: 100svh; }
       .header-inner { padding: 0 20px; }
       nav { display: none; }
       .scroll-rail { display: none; }
@@ -1274,7 +1280,10 @@ background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c
       });
     }
 
+    let heroTitleViewportWidth = 0;
+
     function fitHeroTitle() {
+      heroTitleViewportWidth = document.documentElement.clientWidth;
       const title = document.querySelector('.hero-title');
       // Re-read the responsive CSS size so widening the viewport restores it.
       title.style.removeProperty('font-size');
@@ -1325,7 +1334,13 @@ background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c
       languageButton.setAttribute('aria-expanded', String(open));
     }
     applyLanguage(getLanguagePreference(), false);
-    window.addEventListener('resize', fitHeroTitle);
+    window.addEventListener('resize', () => {
+      // Mobile address bars trigger height-only resize events while scrolling.
+      // Language/font changes still call fitHeroTitle directly.
+      if (document.documentElement.clientWidth !== heroTitleViewportWidth) {
+        fitHeroTitle();
+      }
+    });
     document.fonts.ready.then(fitHeroTitle);
     document.fonts.addEventListener('loadingdone', fitHeroTitle);
     languageButton.addEventListener('click', (event) => {
