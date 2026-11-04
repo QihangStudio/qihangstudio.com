@@ -40,3 +40,5 @@ html:is([lang='zh-CN'], [lang='zh-Hant'], [lang='ja']) :is(.about-copy h1, .abou
   .creator-card .profile-photo { width: 100%; }
   .about-message { flex: none; }
 }
+
+.about-description[data-i18n="about.paragraph1"] { white-space: pre-line; }
