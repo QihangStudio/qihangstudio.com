@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery — Qihang Studio</title>
+  <meta name="description" data-i18n-content="meta.description" content="Essays, reflections, and fragments on art, perception, and the ways we understand the world." />
+  <script src="../assets/theme-init.js">
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Manrope:wght@300;400;500&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <link rel="stylesheet" href="../assets/notes.css">
+  <link rel="stylesheet" href="../assets/pages.css">
+  <link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
+</head>
+<body class="notes-page gallery-page">
+  <div class="scroll-rail" id="scrollRail" aria-hidden="true"><div class="scroll-thumb"></div></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html"><span class="brand-logo" aria-hidden="true"><img src="../assets/brand/logo.png" alt="" width="28" height="28"><span class="logo-gradient-shift"></span></span><span>Qihang Studio™</span></a>
+      <div class="nav-wrap">
+        <nav aria-label="Primary navigation" data-i18n-aria-label="nav.label">
+          <a href="../solutions/index.html" data-i18n="nav.solutions">Solutions</a>
+          <a href="index.html" data-i18n="nav.gallery">Gallery</a>
+          <a href="../about/index.html" data-i18n="nav.about">About</a>
+        </nav>
+        <div class="appearance">
+          <button
+            class="appearance-button"
+            id="themeButton"
+            aria-label="Choose appearance"
+            aria-expanded="false"
+            aria-controls="themeMenu"
+            aria-haspopup="true">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.45" aria-hidden="true">
+              <circle cx="12" cy="12" r="3.5">
+</circle>
+              <path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5 7 7M17 17l1.5 1.5M18.5 5.5 17 7M7 17l-1.5 1.5">
+</path>
+            </svg>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.45" aria-hidden="true">
+              <path d="M19.4 15.2A7.8 7.8 0 0 1 8.8 4.6 7.9 7.9 0 1 0 19.4 15.2Z">
+</path>
+            </svg>
+          </button>
+          <div class="appearance-menu" id="themeMenu">
+            <div class="appearance-label" data-i18n="appearance.label">Appearance</div>
+            <button class="theme-option" data-theme-choice="system">
+              <span data-i18n="appearance.system">System</span>
+<span>
+</span>
+            </button>
+            <button class="theme-option" data-theme-choice="light">
+              <span data-i18n="appearance.light">Light</span>
+<span>
+</span>
+            </button>
+            <button class="theme-option" data-theme-choice="dark">
+              <span data-i18n="appearance.dark">Dark</span>
+<span>
+</span>
+            </button>
+          </div>
+        </div>
+        <div class="language">
+          <button class="language-button" id="languageButton" aria-label="Choose language" data-i18n-aria-label="language.choose" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45" aria-hidden="true">
+              <circle cx="12" cy="12" r="8.3">
+</circle>
+              <path d="M3.9 12h16.2M12 3.7c2.2 2.3 3.4 5.1 3.4 8.3S14.2 18 12 20.3C9.8 18 8.6 15.2 8.6 12S9.8 6 12 3.7Z">
+</path>
+            </svg>
+          </button>
+          <div class="language-menu" id="languageMenu">
+            <div class="language-label" data-i18n="language.label">Language</div>
+            <button class="language-option" data-lang="en" aria-pressed="true">
+<span lang="en">English</span>
+<span class="check" aria-hidden="true">✓</span>
+</button>
+            <button class="language-option" data-lang="zh" aria-pressed="false">
+<span lang="zh-CN">中文简体</span>
+<span class="check" aria-hidden="true">
+</span>
+</button>
+            <button class="language-option" data-lang="zh-Hant" aria-pressed="false"><span lang="zh-Hant">中文繁體</span><span class="check" aria-hidden="true"></span></button>
+            <button class="language-option" data-lang="ja" aria-pressed="false">
+<span lang="ja">日本語</span>
+<span class="check" aria-hidden="true">
+</span>
+</button>
+            <button class="language-option" data-lang="fr" aria-pressed="false">
+<span lang="fr">Français</span>
+<span class="check" aria-hidden="true">
+</span>
+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-page-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.label"><a href="../solutions/index.html" data-i18n="nav.solutions">Solutions</a><a href="index.html" data-i18n="nav.gallery">Gallery</a><a href="../about/index.html" data-i18n="nav.about">About</a></nav>
+<main class="notes-main simple-page" id="top"><a class="notes-back" href="../index.html" data-i18n="notes.home">Home</a><h1 data-i18n="nav.gallery">Gallery</h1><p class="page-description" data-i18n="gallery.description"></p><p class="about-placeholder" data-i18n="pages.coming">Coming Soon</p></main>
+  <div class="section">
+    <footer>
+      <span>© 2026 Qihang Studio</span>
+      <div class="footer-links">
+        <a href="../index.html" data-i18n="notes.home">Home</a>
+        <a href="https://github.com/QihangStudio"
+          target="_blank"
+          rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a href="#">LinkedIn</a>
+        <a href="mailto:hello@example.com" data-i18n="footer.email">Email</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/site.js"></script>
+</body>
+</html>
