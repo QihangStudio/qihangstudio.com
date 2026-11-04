@@ -216,7 +216,9 @@
     Object.keys(essayInterfaceTranslations).forEach(language => Object.assign(notesTranslations[language], essayInterfaceTranslations[language]));
     const pageTranslations = {
   "en": {
-    "about.heading": "About Me",
+    "about.heading": "A few words from the studio’s creator",
+    "about.creatorName": "Qihang",
+    "about.creatorSubtitle": "Creator of Qihang Studio",
     "about.photoAlt": "Qihang Cheng seated beside the sea",
     "about.paragraph1": "Hello, fellow traveler! Whether or not we’ve met in the world beyond this screen, welcome to Qihang Studio.",
     "about.paragraph2": "I’m Qihang—nice to meet you! I’m currently studying data science at the University of Michigan.",
@@ -225,7 +227,9 @@
     "pages.coming": "Coming Soon"
   },
   "zh": {
-    "about.heading": "关于我",
+    "about.heading": "工作室创作者想对你说",
+    "about.creatorName": "启航",
+    "about.creatorSubtitle": "Qihang Studio 创作者",
     "about.photoAlt": "程启航坐在海边",
     "about.paragraph1": "旅者好呀！无论我们是否曾在现实世界中相识，都欢迎你来到 Qihang Studio。",
     "about.paragraph2": "启航～是我的名字哦。目前我就读于密歇根大学，主修数据科学。",
@@ -234,7 +238,9 @@
     "pages.coming": "敬请期待"
   },
   "ja": {
-    "about.heading": "私について",
+    "about.heading": "スタジオのつくり手から、あなたへ",
+    "about.creatorName": "啓航",
+    "about.creatorSubtitle": "Qihang Studio のつくり手",
     "about.photoAlt": "海辺に座る程啓航",
     "about.paragraph1": "旅人さん、こんにちは！現実の世界で会ったことがある方も、まだ会ったことのない方も、Qihang Studio へようこそ。",
     "about.paragraph2": "啓航（チーハン）といいます。どうぞよろしく！今はミシガン大学でデータサイエンスを専攻しています。",
@@ -243,7 +249,9 @@
     "pages.coming": "近日公開"
   },
   "fr": {
-    "about.heading": "À propos de moi",
+    "about.heading": "Quelques mots du créateur du studio",
+    "about.creatorName": "Qihang",
+    "about.creatorSubtitle": "Créateur de Qihang Studio",
     "about.photoAlt": "Qihang Cheng assis au bord de la mer",
     "about.paragraph1": "Bonjour, ami de passage ! Que nos chemins se soient déjà croisés dans le monde réel ou non, bienvenue dans Qihang Studio.",
     "about.paragraph2": "Moi, c’est Qihang ! J’étudie actuellement la science des données à l’Université du Michigan.",
@@ -301,7 +309,9 @@
       "notes.unavailable": "尚未收到這篇文章的原稿。",
       "notes.noScript": "請啟用 JavaScript 以選擇閱讀語言。",
       "notes.reading": "文章",
-      "about.heading": "關於我",
+      "about.heading": "工作室創作者想對你說",
+      "about.creatorName": "啟航",
+      "about.creatorSubtitle": "Qihang Studio 創作者",
       "about.photoAlt": "程啟航坐在海邊",
       "about.paragraph1": "旅者好呀！無論我們是否曾在現實世界中相識，都歡迎你來到 Qihang Studio。",
       "about.paragraph2": "啟航～是我的名字哦。目前我就讀於密歇根大學，主修數據科學。",
