@@ -590,6 +590,9 @@ background: linear-gradient(
     }
     .manifesto-quote em {
       display: inline-block;
+      /* Extend the gradient paint area for italic ascenders and descenders without changing line spacing. */
+      padding-block: .12em .22em;
+      margin-block: -.12em -.22em;
       white-space: nowrap;
       font-weight: 300;
 background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c));
@@ -742,6 +745,9 @@ background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c
       display: inline-block;
       white-space: nowrap;
     }
+    @media (max-width: 820px) {
+      html[lang="en"] .hero-title .title-conversation { display: block; }
+    }
     html[lang="fr"] .practice-title {
       hyphens: auto;
     }
@@ -781,6 +787,8 @@ background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c
 .mobile-page-nav { display: none; }
 @media (max-width: 820px) {
   .mobile-page-nav {
+    /* Keep links above .hero-inner (z-index: 2), below the fixed header and its menus. */
+    z-index: 3;
     position: absolute; top: 92px; left: 20px; right: 20px;
     display: flex; gap: 24px; font-size: 11px; color: var(--muted); line-height: 1.4;
   }

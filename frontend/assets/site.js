@@ -559,6 +559,14 @@
         const span = document.createElement('span');
         span.className = 'title-phrase';
         span.textContent = phrase.slice(leadingSpace.length);
+        // Give the final English word its own mobile line without changing the desktop text.
+        if (currentLanguage === 'en' && span.textContent.endsWith('conversation.')) {
+          const word = document.createElement('span');
+          word.className = 'title-conversation';
+          word.textContent = 'conversation.';
+          span.textContent = span.textContent.slice(0, -word.textContent.length);
+          span.appendChild(word);
+        }
         element.appendChild(span);
         if (index < phrases.length - 1) element.appendChild(document.createElement('wbr'));
       });
