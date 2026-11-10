@@ -1,59 +1,49 @@
 # Personal Notes 内容维护
 
-## 文件与路由
+## 入口与原稿
 
-- `../about/index.html#personal-notes`：Personal Notes 的主入口，位于 About 下方。Me & Art 默认折叠，文章直接链接到阅读页；两个 Coming Soon 是不同层级的普通文本。
-- `index.html`：兼容旧 Notes URL，跳转到 About 的 Personal Notes 区域。
-- `before-the-next-stroke/index.html`：四语言全文，共用一个阅读 URL。
-- `within-the-mist/index.html`：暂未收到原稿，只显示本地化状态，不含虚构正文。
-- `me-and-art/Before the Next Stroke/`：作者提供的 EN / CN Word 原稿，文件内容未经修改。
-- `me-and-art/Within the Mist/`：按作者要求创建并留空，等待原稿。空目录不会被 Git 保存。
-- 旧的 `me-and-art/index.html` 和 `arts-got-problems/index.html` 仅跳转到 About 的 Personal Notes 区域，避免留下多余的合集页面或过期文章。
+Personal Notes 位于 `../about/index.html#personal-notes`。Me & Art 默认折叠；展开后按 01–04 的原稿顺序列出四篇文章。旧 Notes／合集 URL 仍跳转到这个入口。
 
-## 原稿与翻译
+| 序号 | 中文标题 | 阅读路由 | 原稿目录（均位于 `me-and-art/`） |
+| --- | --- | --- | --- |
+| 01 | 落笔之前 | `before-the-next-stroke/` | `01 Before the Next Stroke/` |
+| 02 | 迷雾之中 | `within-the-mist/` | `02 Within the Mist/` |
+| 03 | 坠入记忆的汪洋 | `falling-into-the-oceanic-expanse-of-memory/` | `03 Falling into the Oceanic Expanse of Memory/` |
+| 04 | 这里的符号丝线交织 | `the-signifiers-here-are-chained/` | `04 The Signifiers Here are Chaîned/` |
 
-网页英文从 Word 文本和格式逐段提取，没有改写。中文版同样保留原稿内容，只有一处经过作者明确授权的修改：
+每个目录都有作者提供的 EN／CN Word 原稿。04 的两个文件名仍为 `Falling into the Oceanic Expanse of Memory CN.docx`／`EN.docx`，但正文标题及内容确为 04；网页以正文为准，没有改名或修改原文件。目录里的 Coming Soon 保留在现有层级。
 
-原句：人是多样的，对事物的审美也是多样的，如是，仅仅是一人觉得事物存在艺术性，那么我们就不能否认它是艺术。
+## 原文与翻译
 
-网页改为：人是多样的，对事物的审美也是多样的；如果哪怕只有一个人感受到某件事物的艺术性，那么这件事物至少拥有一位欣赏者。
+每篇阅读页都包含 en、zh、zh-Hant、ja、fr 五个静态模板，使用同一个 URL 和既有语言切换逻辑。简中内部语言代码为 `zh`，正文使用 `lang="zh-CN"`；繁中使用 `zh-Hant`。
 
-两份 Word 文件本身保持原样。标题、中文署名、段落、诗行、原有斜体与粗体均保留在对应语言模板中；英文中的原有不规则标点、语法、空格也未修正。原稿没有实际脚注、尾注、表格或图片。
+02–04 的英文、简中正文从 Word 的正文段落提取，保留文字、标点、空格和段落顺序，没有修正文中的原有表达。标题与署名单独呈现，文件末尾的空白段落不写入网页。03 英文原稿开头重复出现两次标题，中间为空行；网页仅在标题处显示一次，不将重复标题当作正文。三个新增稿件均无图片、表格、脚注或正文强调格式。
 
-作者已确定日法翻译原则：所有意思参考英文，意境参考中文。日法版本逐段对应英文，不概括、不省略。差异处据此处理：
+| 文章 | 英文正文段落 | 简中／繁中正文段落 | 日文／法文正文段落 |
+| --- | --- | --- | --- |
+| 02 | 17 | 17 | 17 |
+| 03 | 28 | 28 | 28 |
+| 04 | 26 | 24 | 26 |
 
-1. 艺术性论断保留英文的“至少有一位欣赏者”，中文版该句按授权同步。
-2. 英文没有“南洋杉替代故乡水杉”的对照，日法不添加这一中文独有意象。
-3. 英文结尾含银蕨、几维鸟，且“走得很远，也并不那么远”的表述不同于中文；日法保留英文内容。
-4. “启航”同时是姓名和扬帆起程的双关。日文使用“啓航”并接扬帆、出发的解释；法文保留 Qihang 并解释为 mettre les voiles, commencer le voyage。
-5. 中文独有署名仅保留在中文版，不向英文或译文添加新署名。
+繁中从简中作字形转换，保留对应内容与分段。日法译文遵循作者确定的原则：意思参考英文，意境参考中文；逐段对应英文，不概括、省略或补入中文独有内容。02–04 中人物、曼陀林、海、表象／真实、能指链条的反复意象保持连贯。04 日文使用「シニフィアン」、法文使用 « signifiant »。
 
-已发现的版本差异均按作者给定优先级处理，无未解决的论断冲突。《Within the Mist》尚无原文，因此没有制作任何版本或译文。
+01 的正文及已有译文此次未修改。01 的中文曾有一处经作者授权的含义调整，将“一人觉得有艺术性就不能否认它是艺术”改为与英文一致的“至少拥有一位欣赏者”；原始 Word 一直保留原样。
 
-## 添加或更新文章
+## 当前排版约定
 
-1. 将原稿放入对应原稿目录，保留作者提供的文件。
-2. 复制现有阅读页到 `notes/<slug>/index.html`，更新目录链接。保留相对资源路径，兼容本地文件预览和静态服务器。
-3. 为 en、zh、zh-Hant、ja、fr 各维护一个 `<template data-essay-language="…" data-essay-lang="…">`。中文菜单内部代码是 `zh`，HTML 语言标记是 `zh-CN`。
-4. 每个模板包含一个 `h1` 和一个 `.essay-body`。使用语义 HTML 保留段落、`em`、`strong`、`blockquote`、标题与引用；`data-source-paragraph` 用于逐段核查。正文不要使用 UI 的 `data-i18n`，避免覆盖整段格式。
-5. 更新 About 页的 Personal Notes 目录。必要的新界面文案加入 `assets/site.js` 的 `essayInterfaceTranslations` 四语言字典。
-6. 正文模板放在 `notes.js` 和 `site.js` 两个脚本之前；脚本顺序必须是 `notes.js` 在前、`site.js` 在后。
-7. 在 HTTP 本地预览中检查四语言全文、重载和跨页偏好、主题、320px 布局。直接双击本地 HTML 时资源无需 fetch；浏览器对 file:// 的存储共享策略不同，跨页偏好应以 HTTP/实际站点为准。
+- 标题缩小居中，细线位于标题上方；署名只保留名字：启航／啟航／啓航／Qihang。
+- 普通正文段落两端对齐。简繁中文首行缩进 `2em`，不向原文插入空格。
+- 对话仍是普通段落。诗歌、明确标记的特殊段落及署名居中且不缩进；新增三篇没有诗歌或特殊居中段落。
+- 简中使用本机 Songti SC Light（真实 300 字重），并保留现有 Noto Serif SC 等备用字体；桌面 19px，平板／手机 18px，行高 1.85，字距 0，列宽最多 680px。其他语言继承现有字体与响应式样式。
+- 新增三篇正文没有粗体；不要额外添加。既有 `em`／`strong` 标签的语义与显示遵循 `notes.css`，不在新增页面中覆盖全站样式。
 
-## 语言与主题
+## 维护与核查
 
-`site.js` 是唯一语言菜单与偏好的实现，仍保存到 `qihangstudio-language`。语言应用时同步发出 `studio:language-change`；`notes.js` 克隆对应静态模板，更新标题、全文、页面标题及 `lang`。繁体中文使用 `zh-Hant`，正文与简体字形转换版本对应。初次渲染前文章隐藏，避免闪现错误语言。没有 JavaScript 时显示四语言启用提示。
+1. 保留作者原稿。核对 Word 正文标题，不能只根据文件名判断文章内容。
+2. 每个阅读页包含五个 `<template data-essay-language="…" data-essay-lang="…">`，模板内为 `h1` 与 `.essay-body`。`data-source-paragraph` 是原始 Word 段落的 1 起始序号；日法使用对应英文段落的序号。
+3. 正文不使用 UI 的 `data-i18n`。新增目录标题加入 `assets/site.js` 的对应语言字典。
+4. `notes.js` 必须在 `site.js` 前加载，模板放在两者之前。正文仍从本页模板克隆，无额外 fetch。
+5. 简中增加字符时，重新生成 `assets/fonts/noto-serif-sc.css` 的所有简中文章字符并集，避免备用字体缺字；保留许可证及真实字重。当前子集已覆盖 01–04。
+6. 核对五种语言全文、目录跳转、重载与跨页语言偏好；检查桌面／平板／320px 手机、Light／Dark／System 及滚动指示器。页眉、菜单、主题、About 介绍和布局不属于文章内容更新的改动范围。
 
-主题继续由 `theme-init.js` 和 `site.js` 管理，保存到既有 `qihangstudio-theme`，没有独立主题系统。长文和中日文字体在 `notes.css` 中维护；About 布局使用 `pages.css`。共享页眉、Logo 和移动导航使用 `site.css`；主题和滚动指示器仍复用原有实现。
-
-## 中文版本与明體
-
-菜单现在为“中文简体”和“中文繁體”，两项固定使用各自的黑体／无衬线字体，字重与其他语言选项一致（400）。简繁标题与繁中正文保留明體栈；简中正文单独使用随站点提供的 Noto Serif SC 400，详见 `assets/fonts/README.md`。语言菜单使用各语言的无衬线字体：Manrope、PingFang SC／TC、Hiragino Sans 等；各选项从 400 字重校准，不使用滤镜、文字描边或强制细字面。
-
-繁体界面字典存放在 `site.js` 的 `translations['zh-Hant']`，由合并后的简体界面文案作字形转换生成。繁体正文位于同页 `data-essay-language="zh-Hant"` 模板，直接对应简体版的 32 段、署名、诗行和强调，未重新翻译或改写。更新简体内容时，应同步更新对应繁体字典／模板；不能只更新其中一份。原英文、简体、日文、法文模板不变。
-
-## 中文段落与可读性
-
-简繁普通段落均使用 `text-indent: 2em` 首行缩进，不向原文添加空格。诗行（`essay-verse`）、独立问句／反思／对话（`essay-special`）、署名（`essay-byline`）居中且不缩进。段落的原始文本、标点与内联标签保持不变。
-
-按作者最新要求，正文中的 `strong`／`b` 只保留源语义，显示字重继承正常正文，不再加粗。简中正文使用真实 Noto Serif SC 400，桌面 19px、移动／平板 18px、行高 1.85、字距 0，左对齐，最大列宽 680px。浅色正文颜色单独提高对比度，深色继续使用原有 `--copy`。英、法、日正文排版不变。
+语言与主题偏好仍分别使用 `qihangstudio-language` 和 `qihangstudio-theme`。`site.js` 发出 `studio:language-change`，`notes.js` 更新标题、正文及 `lang`。关闭 JavaScript 时显示启用提示；直接 HTML 预览不依赖正文网络请求，跨页偏好以 HTTP 预览／正式站点为准。
