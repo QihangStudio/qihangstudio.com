@@ -804,3 +804,6 @@ background: linear-gradient(90deg, var(--quote-a), var(--quote-b), var(--quote-c
 }
 
 html:is([lang="zh-CN"], [lang="zh-Hant"]) :is(h1, .practice-head h2, .practice-title, .manifesto-quote) { font-weight: 400; }
+
+/* Use vector link arrows so mobile platforms cannot substitute emoji glyphs. */
+:is(.arrow, .note-arrow) > svg { display: block; flex-shrink: 0; }

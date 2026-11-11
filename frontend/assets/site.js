@@ -334,6 +334,163 @@
       "about.paragraph4": "Qihang Studio 是我為這些興趣建立的一方天地。在這裡，我記錄自己的研究、創作與思考，也嘗試在理性與感性之間架起一座橋樑。",
       "pages.coming": "敬請期待"
 };
+    // Gallery copy uses the existing shared localization lifecycle.
+    const galleryTranslations = {
+  "en": {
+    "gallery.heading": "Gallery",
+    "gallery.intro1": "A collection of my visual creations and image-making studies.",
+    "gallery.intro2": "From city nights to geometric compositions, from real streets to imagined spaces, these are the ways I use images to record the world and express ideas.",
+    "gallery.meta": "Qihang Studio Gallery — visual creations and image-making studies.",
+    "gallery.artworks": "Artworks",
+    "gallery.close": "Close image viewer",
+    "gallery.previous": "Previous artwork",
+    "gallery.next": "Next artwork",
+    "gallery.help": "Use the left and right arrow keys to browse artworks. Press Escape to close.",
+    "gallery.position": "{current} / {total}",
+    "gallery.imageError": "The image could not be loaded. Please close the viewer and try again.",
+    "gallery.openCanton": "View Canton in full size",
+    "gallery.openJunction": "View Junction in full size",
+    "gallery.openNanjing": "View Nanjing in full size",
+    "gallery.openEastport": "View Eastport in full size",
+    "gallery.openSkycity": "View Skycity in full size",
+    "gallery.openWayHome": "View Way Home in full size"
+  },
+  "zh": {
+    "gallery.heading": "影像集",
+    "gallery.intro1": "这里收藏了我的视觉创作与影像练习。",
+    "gallery.intro2": "从城市夜景到几何构成，从真实的街道到想象的空间，是我用图像记录世界、表达想法的方式。",
+    "gallery.meta": "Qihang Studio 影像集——视觉创作与影像练习。",
+    "gallery.artworks": "作品",
+    "gallery.close": "关闭图片查看器",
+    "gallery.previous": "上一幅作品",
+    "gallery.next": "下一幅作品",
+    "gallery.help": "使用左右方向键切换作品，按 Escape 键关闭。",
+    "gallery.position": "第 {current} 幅，共 {total} 幅",
+    "gallery.imageError": "图片未能加载，请关闭查看器后重试。",
+    "gallery.openCanton": "查看 Canton 全图",
+    "gallery.openJunction": "查看 Junction 全图",
+    "gallery.openNanjing": "查看 Nanjing 全图",
+    "gallery.openEastport": "查看 Eastport 全图",
+    "gallery.openSkycity": "查看 Skycity 全图",
+    "gallery.openWayHome": "查看 Way Home 全图"
+  },
+  "zh-Hant": {
+    "gallery.heading": "影像集",
+    "gallery.intro1": "這裡收藏了我的視覺創作與影像練習。",
+    "gallery.intro2": "從城市夜景到幾何構成，從真實的街道到想像的空間，是我用圖像記錄世界、表達想法的方式。",
+    "gallery.meta": "Qihang Studio 影像集——視覺創作與影像練習。",
+    "gallery.artworks": "作品",
+    "gallery.close": "關閉圖片檢視器",
+    "gallery.previous": "上一幅作品",
+    "gallery.next": "下一幅作品",
+    "gallery.help": "使用左右方向鍵切換作品，按 Escape 鍵關閉。",
+    "gallery.position": "第 {current} 幅，共 {total} 幅",
+    "gallery.imageError": "圖片未能載入，請關閉檢視器後重試。",
+    "gallery.openCanton": "檢視 Canton 全圖",
+    "gallery.openJunction": "檢視 Junction 全圖",
+    "gallery.openNanjing": "檢視 Nanjing 全圖",
+    "gallery.openEastport": "檢視 Eastport 全圖",
+    "gallery.openSkycity": "檢視 Skycity 全圖",
+    "gallery.openWayHome": "檢視 Way Home 全圖"
+  },
+  "ja": {
+    "gallery.heading": "ギャラリー",
+    "gallery.intro1": "視覚表現の創作や、イメージづくりの習作を集めています。",
+    "gallery.intro2": "街の夜景から幾何学的な構成まで、実在する通りから想像の空間まで。イメージを通して世界を記録し、思いを表す、私なりのかたちです。",
+    "gallery.meta": "Qihang Studio ギャラリー — 視覚表現の創作とイメージづくりの習作。",
+    "gallery.artworks": "作品",
+    "gallery.close": "画像ビューアーを閉じる",
+    "gallery.previous": "前の作品",
+    "gallery.next": "次の作品",
+    "gallery.help": "左右の矢印キーで作品を切り替え、Escape キーで閉じます。",
+    "gallery.position": "{current} / {total}",
+    "gallery.imageError": "画像を読み込めませんでした。ビューアーを閉じて、もう一度お試しください。",
+    "gallery.openCanton": "Canton を大きく表示",
+    "gallery.openJunction": "Junction を大きく表示",
+    "gallery.openNanjing": "Nanjing を大きく表示",
+    "gallery.openEastport": "Eastport を大きく表示",
+    "gallery.openSkycity": "Skycity を大きく表示",
+    "gallery.openWayHome": "Way Home を大きく表示"
+  },
+  "fr": {
+    "gallery.heading": "Galerie",
+    "gallery.intro1": "Une collection de mes créations visuelles et de mes études en images.",
+    "gallery.intro2": "Des villes nocturnes aux compositions géométriques, des rues réelles aux espaces imaginés : autant de façons de garder une trace du monde et d’exprimer mes idées par l’image.",
+    "gallery.meta": "Galerie Qihang Studio — créations visuelles et études en images.",
+    "gallery.artworks": "Œuvres",
+    "gallery.close": "Fermer la visionneuse",
+    "gallery.previous": "Œuvre précédente",
+    "gallery.next": "Œuvre suivante",
+    "gallery.help": "Utilisez les flèches gauche et droite pour parcourir les œuvres. Appuyez sur Échap pour fermer.",
+    "gallery.position": "{current} / {total}",
+    "gallery.imageError": "L’image n’a pas pu être chargée. Fermez la visionneuse et réessayez.",
+    "gallery.openCanton": "Voir Canton en grand format",
+    "gallery.openJunction": "Voir Junction en grand format",
+    "gallery.openNanjing": "Voir Nanjing en grand format",
+    "gallery.openEastport": "Voir Eastport en grand format",
+    "gallery.openSkycity": "Voir Skycity en grand format",
+    "gallery.openWayHome": "Voir Way Home en grand format"
+  }
+};
+    const galleryToolbarTranslations = {
+  "en": {
+    "gallery.filter.all": "All",
+    "gallery.filter.city": "Cityscape",
+    "gallery.filter.illustration": "Illustration",
+    "gallery.filter.experiment": "Experiment",
+    "gallery.filters": "Filter artworks",
+    "gallery.layout": "Display layout",
+    "gallery.view.grid": "Grid view",
+    "gallery.view.list": "List view",
+    "gallery.empty": "No artworks in this category yet."
+  },
+  "zh": {
+    "gallery.filter.all": "全部",
+    "gallery.filter.city": "城市",
+    "gallery.filter.illustration": "插画",
+    "gallery.filter.experiment": "实验",
+    "gallery.filters": "筛选作品",
+    "gallery.layout": "显示布局",
+    "gallery.view.grid": "网格视图",
+    "gallery.view.list": "列表视图",
+    "gallery.empty": "此分类暂无作品。"
+  },
+  "zh-Hant": {
+    "gallery.filter.all": "全部",
+    "gallery.filter.city": "城市",
+    "gallery.filter.illustration": "插畫",
+    "gallery.filter.experiment": "實驗",
+    "gallery.filters": "篩選作品",
+    "gallery.layout": "顯示配置",
+    "gallery.view.grid": "網格檢視",
+    "gallery.view.list": "列表檢視",
+    "gallery.empty": "此分類暫無作品。"
+  },
+  "ja": {
+    "gallery.filter.all": "すべて",
+    "gallery.filter.city": "都市",
+    "gallery.filter.illustration": "イラスト",
+    "gallery.filter.experiment": "実験",
+    "gallery.filters": "作品を絞り込む",
+    "gallery.layout": "表示形式",
+    "gallery.view.grid": "グリッド表示",
+    "gallery.view.list": "リスト表示",
+    "gallery.empty": "このカテゴリーの作品はまだありません。"
+  },
+  "fr": {
+    "gallery.filter.all": "Tout",
+    "gallery.filter.city": "Ville",
+    "gallery.filter.illustration": "Illustration",
+    "gallery.filter.experiment": "Expérimentation",
+    "gallery.filters": "Filtrer les œuvres",
+    "gallery.layout": "Disposition",
+    "gallery.view.grid": "Vue en grille",
+    "gallery.view.list": "Vue en liste",
+    "gallery.empty": "Aucune œuvre dans cette catégorie pour le moment."
+  }
+};
+    Object.entries(galleryToolbarTranslations).forEach(([language, copy]) => Object.assign(galleryTranslations[language], copy));
+    Object.entries(galleryTranslations).forEach(([language, copy]) => Object.assign(translations[language], copy));
     const LANGUAGE_STORAGE_KEY = 'qihangstudio-language';
     const languageTags = { en: 'en', zh: 'zh-CN', 'zh-Hant': 'zh-Hant', ja: 'ja', fr: 'fr' };
     let currentLanguage = 'en';

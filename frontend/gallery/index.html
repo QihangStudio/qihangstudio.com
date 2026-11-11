@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery — Qihang Studio</title>
-  <meta name="description" data-i18n-content="meta.description" content="Essays, reflections, and fragments on art, perception, and the ways we understand the world." />
+  <meta name="description" data-i18n-content="gallery.meta" content="Qihang Studio Gallery — visual creations and image-making studies." />
   <script src="../assets/theme-init.js">
 </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../assets/site.css">
   <link rel="stylesheet" href="../assets/notes.css">
   <link rel="stylesheet" href="../assets/pages.css">
+  <link rel="stylesheet" href="../assets/gallery.css">
   <link rel="icon" href="../assets/brand/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/brand/favicon-16.png">
@@ -22,11 +23,11 @@
   <div class="scroll-rail" id="scrollRail" aria-hidden="true"><div class="scroll-thumb"></div></div>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="../index.html"><span class="brand-logo" aria-hidden="true"><img src="../assets/brand/logo.png" alt="" width="28" height="28"><span class="logo-gradient-shift"></span></span><span>Qihang Studio™</span></a>
+      <a class="brand" href="../"><span class="brand-logo" aria-hidden="true"><img src="../assets/brand/logo.png" alt="" width="28" height="28"><span class="logo-gradient-shift"></span></span><span>Qihang Studio™</span></a>
       <div class="nav-wrap">
         <nav aria-label="Primary navigation" data-i18n-aria-label="nav.label">
           <a href="../solutions/index.html" data-i18n="nav.solutions">Solutions</a>
-          <a href="index.html" data-i18n="nav.gallery">Gallery</a>
+          <a href="index.html" data-i18n="nav.gallery" aria-current="page">Gallery</a>
           <a href="../about/index.html" data-i18n="nav.about">About</a>
         </nav>
         <div class="appearance">
@@ -105,8 +106,52 @@
       </div>
     </div>
   </header>
-  <nav class="mobile-page-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.label"><a href="../solutions/index.html" data-i18n="nav.solutions">Solutions</a><a href="index.html" data-i18n="nav.gallery">Gallery</a><a href="../about/index.html" data-i18n="nav.about">About</a></nav>
-<main class="notes-main simple-page" id="top"><a class="notes-back" href="../index.html" data-i18n="notes.home">Home</a><h1 data-i18n="nav.gallery">Gallery</h1><p class="page-description" data-i18n="gallery.description"></p><p class="about-placeholder" data-i18n="pages.coming">Coming Soon</p></main>
+  <nav class="mobile-page-nav" aria-label="Primary navigation" data-i18n-aria-label="nav.label"><a href="../solutions/index.html" data-i18n="nav.solutions">Solutions</a><a href="index.html" data-i18n="nav.gallery" aria-current="page">Gallery</a><a href="../about/index.html" data-i18n="nav.about">About</a></nav>
+<main class="notes-main gallery-main" id="top">
+  <header class="gallery-intro">
+    <div class="gallery-heading"><h1 id="gallery-title" data-i18n="gallery.heading">Gallery</h1><span class="gallery-accent" aria-hidden="true"></span></div>
+    <div class="gallery-description"><p data-i18n="gallery.intro1">A collection of my visual creations and image-making studies.</p><p data-i18n="gallery.intro2">From city nights to geometric compositions, from real streets to imagined spaces, these are the ways I use images to record the world and express ideas.</p></div>
+  </header>
+  <div class="gallery-toolbar" hidden>
+    <div class="gallery-filters" role="group" aria-label="Filter artworks" data-i18n-aria-label="gallery.filters">
+      <button type="button" class="gallery-filter" data-gallery-filter="all" aria-pressed="true" aria-controls="galleryGrid"><span data-i18n="gallery.filter.all">All</span></button>
+      <button type="button" class="gallery-filter" data-gallery-filter="city" aria-pressed="false" aria-controls="galleryGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5h8v16M12 10h8v11M2 21h20M7 8h2M7 12h2M7 16h2M15 13h2M15 17h2"/></svg><span data-i18n="gallery.filter.city">Cityscape</span></button>
+      <button type="button" class="gallery-filter" data-gallery-filter="illustration" aria-pressed="false" aria-controls="galleryGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></svg><span data-i18n="gallery.filter.illustration">Illustration</span></button>
+      <button type="button" class="gallery-filter" data-gallery-filter="experiment" aria-pressed="false" aria-controls="galleryGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v7L4 20q0 1 2 1h12q2 0 2-1l-6-10V3M8 15h8"/></svg><span data-i18n="gallery.filter.experiment">Experiment</span></button>
+    </div>
+    <div class="gallery-view-options" role="group" aria-label="Display layout" data-i18n-aria-label="gallery.layout">
+      <button type="button" class="gallery-view-option" data-gallery-view="grid" aria-pressed="true" aria-label="Grid view" data-i18n-aria-label="gallery.view.grid" aria-controls="galleryGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx=".5"/><rect x="14" y="3" width="7" height="7" rx=".5"/><rect x="3" y="14" width="7" height="7" rx=".5"/><rect x="14" y="14" width="7" height="7" rx=".5"/></svg></button>
+      <button type="button" class="gallery-view-option" data-gallery-view="list" aria-pressed="false" aria-label="List view" data-i18n-aria-label="gallery.view.list" aria-controls="galleryGrid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5h13M8 12h13M8 19h13"/><circle cx="3" cy="5" r=".7"/><circle cx="3" cy="12" r=".7"/><circle cx="3" cy="19" r=".7"/></svg></button>
+    </div>
+  </div>
+  <ol id="galleryGrid" class="gallery-grid" aria-label="Artworks" data-i18n-aria-label="gallery.artworks">
+    <li class="gallery-artwork" data-categories="city illustration"><figure>
+      <a class="gallery-open" href="Canton.jpg" data-gallery-index="0" aria-label="View Canton in full size" data-i18n-aria-label="gallery.openCanton" aria-haspopup="dialog" aria-controls="galleryViewer"><img src="Canton.jpg" alt="Canton" width="2081" height="1080" loading="eager" decoding="async"></a>
+      <figcaption><h2 lang="en">Canton</h2></figcaption>
+    </figure></li>
+    <li class="gallery-artwork" data-categories="city illustration"><figure>
+      <a class="gallery-open" href="Junction.jpg" data-gallery-index="1" aria-label="View Junction in full size" data-i18n-aria-label="gallery.openJunction" aria-haspopup="dialog" aria-controls="galleryViewer"><img src="Junction.jpg" alt="Junction" width="3508" height="2480" loading="lazy" decoding="async"></a>
+      <figcaption><h2 lang="en">Junction</h2></figcaption>
+    </figure></li>
+    <li class="gallery-artwork" data-categories="city illustration"><figure>
+      <a class="gallery-open" href="Nanjing.jpg" data-gallery-index="2" aria-label="View Nanjing in full size" data-i18n-aria-label="gallery.openNanjing" aria-haspopup="dialog" aria-controls="galleryViewer"><img src="Nanjing.jpg" alt="Nanjing" width="1920" height="1080" loading="lazy" decoding="async"></a>
+      <figcaption><h2 lang="en">Nanjing</h2></figcaption>
+    </figure></li>
+    <li class="gallery-artwork" data-categories="city illustration"><figure>
+      <a class="gallery-open" href="Eastport.jpg" data-gallery-index="3" aria-label="View Eastport in full size" data-i18n-aria-label="gallery.openEastport" aria-haspopup="dialog" aria-controls="galleryViewer"><img src="Eastport.jpg" alt="Eastport" width="1200" height="900" loading="lazy" decoding="async"></a>
+      <figcaption><h2 lang="en">Eastport</h2></figcaption>
+    </figure></li>
+    <li class="gallery-artwork" data-categories="city illustration"><figure>
+      <a class="gallery-open" href="Skycity.jpg" data-gallery-index="4" aria-label="View Skycity in full size" data-i18n-aria-label="gallery.openSkycity" aria-haspopup="dialog" aria-controls="galleryViewer"><img src="Skycity.jpg" alt="Skycity" width="2480" height="1748" loading="lazy" decoding="async"></a>
+      <figcaption><h2 lang="en">Skycity</h2></figcaption>
+    </figure></li>
+    <li class="gallery-artwork" data-categories="illustration"><figure>
+      <a class="gallery-open" href="Way Home.jpg" data-gallery-index="5" aria-label="View Way Home in full size" data-i18n-aria-label="gallery.openWayHome" aria-haspopup="dialog" aria-controls="galleryViewer"><img src="Way Home.jpg" alt="Way Home" width="1920" height="1080" loading="lazy" decoding="async"></a>
+      <figcaption><h2 lang="en">Way Home</h2></figcaption>
+    </figure></li>
+  </ol>
+  <p class="gallery-empty" hidden role="status" data-i18n="gallery.empty">No artworks in this category yet.</p>
+</main>
   <div class="section">
     <footer>
       <span>© 2026 Qihang Studio</span>
@@ -123,6 +168,14 @@
     </footer>
   </div>
 
+  <dialog class="gallery-viewer" id="galleryViewer" aria-labelledby="galleryViewerTitle" aria-describedby="galleryViewerHelp">
+    <div class="gallery-viewer-topbar"><h2 class="gallery-viewer-title" id="galleryViewerTitle" lang="en">Canton</h2><button type="button" class="gallery-viewer-button" data-viewer-close aria-label="Close image viewer" data-i18n-aria-label="gallery.close" autofocus><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="gallery-viewer-stage"><img class="gallery-viewer-image" id="galleryViewerImage" alt="" decoding="async" draggable="false"><p class="gallery-viewer-error" hidden data-i18n="gallery.imageError">The image could not be loaded. Please close the viewer and try again.</p></div>
+    <div class="gallery-viewer-controls"><button type="button" class="gallery-viewer-button" data-viewer-previous aria-label="Previous artwork" data-i18n-aria-label="gallery.previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m14 6-6 6 6 6"/></svg></button><span class="gallery-viewer-position" id="galleryViewerPosition" role="status" aria-live="polite" aria-atomic="true">1 / 6</span><button type="button" class="gallery-viewer-button" data-viewer-next aria-label="Next artwork" data-i18n-aria-label="gallery.next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m10 6 6 6-6 6"/></svg></button></div>
+    <p class="gallery-sr-only" id="galleryViewerHelp" data-i18n="gallery.help">Use the left and right arrow keys to browse artworks. Press Escape to close.</p>
+  </dialog>
+  <span hidden id="galleryPositionTemplate" data-i18n="gallery.position">{current} / {total}</span>
+  <script src="../assets/gallery.js"></script>
   <script src="../assets/site.js"></script>
 </body>
 </html>
