@@ -60,3 +60,7 @@ __pycache__/
 *.afdesign
 *.afphoto
 *.procreate
+
+# Private working material (never tracked)
+private/
+drafts/

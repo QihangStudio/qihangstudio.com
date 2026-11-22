@@ -1,0 +1,47 @@
+# Local files and credentials (including example environment files)
+**/.DS_Store
+**/._*
+**/.AppleDouble/**
+**/.env
+**/.env.*
+**/.dev.vars
+**/.dev.vars.*
+**/.git/**
+**/.wrangler/**
+**/node_modules/**
+
+# Editable design source assets
+**/*.psd
+**/*.psb
+**/*.ai
+**/*.sketch
+**/*.fig
+**/*.xd
+**/*.afdesign
+**/*.afphoto
+**/*.procreate
+
+# Unpublished writing and office source documents
+**/*.doc
+**/*.docx
+**/*.docm
+**/*.dotx
+**/*.xls
+**/*.xlsx
+**/*.ppt
+**/*.pptx
+**/*.pages
+**/*.numbers
+**/*.key
+
+# Local databases and private folders
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+**/private/**
+**/drafts/**
+
+# Development notes are kept in Git, not served as website assets.
+**/README.md
+**/DEVLOG.md
+STRUCTURE-AND-BRANDING.md
