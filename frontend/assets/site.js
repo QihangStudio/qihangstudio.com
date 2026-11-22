@@ -181,7 +181,7 @@
 };
     const essayInterfaceTranslations = {
   "en": {
-    "notes.collection": "Me & Art",
+    "notes.collection": "Lake of Art, Loch of Memory",
     "notes.coming": "Coming Soon",
     "notes.stroke": "Before the Next Stroke",
     "notes.mist": "Within the Mist",
@@ -192,7 +192,7 @@
     "notes.reading": "Essay"
   },
   "zh": {
-    "notes.collection": "我与艺术",
+    "notes.collection": "艺湖，忆湖",
     "notes.coming": "敬请期待",
     "notes.stroke": "落笔之前",
     "notes.mist": "迷雾之中",
@@ -203,7 +203,7 @@
     "notes.reading": "文章"
   },
   "ja": {
-    "notes.collection": "私とアート",
+    "notes.collection": "芸術の湖、記憶の湖",
     "notes.coming": "近日公開",
     "notes.stroke": "次のひと筆の前に",
     "notes.mist": "霧の中で",
@@ -214,7 +214,7 @@
     "notes.reading": "エッセイ"
   },
   "fr": {
-    "notes.collection": "L’art et moi",
+    "notes.collection": "Lac de l’art, loch de la mémoire",
     "notes.coming": "À venir",
     "notes.stroke": "Avant le prochain trait",
     "notes.mist": "Au cœur de la brume",
@@ -315,7 +315,7 @@
       "notes.pending": "文章正文尚未添加。",
       "notes.placeholder": "正文佔位",
       "notes.index": "文章目錄",
-      "notes.collection": "我與藝術",
+      "notes.collection": "藝湖，憶湖",
       "notes.coming": "敬請期待",
       "notes.stroke": "落筆之前",
       "notes.mist": "迷霧之中",
